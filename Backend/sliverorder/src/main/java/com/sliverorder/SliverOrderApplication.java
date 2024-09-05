@@ -1,13 +1,13 @@
-package com.second.sliverorder;
+package com.sliverorder;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class SliverorderApplication {
+public class SliverOrderApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(SliverorderApplication.class, args);
+		SpringApplication.run(SliverOrderApplication.class, args);
 	}
 
 }
