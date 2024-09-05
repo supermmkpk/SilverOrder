@@ -34,7 +34,7 @@ public class Store {
     @Column(name = "STORE_DESC", length = 200)
     private String storeDesc;
 
-    @Column(name = "STORE_CATEGORY",nullable = false)
+    @Column(name = "STORE_CATEGORY", length = 4, nullable = false)
     @NotNull
     private String storeCategory;
 
@@ -42,7 +42,7 @@ public class Store {
     @NotNull
     private double storeRate;
 
-    @Column(name = "STORE_STATUS", nullable = false)
+    @Column(name = "STORE_STATUS", length = 4, nullable = false)
     @NotNull
     private String storeStatus;
 
@@ -56,14 +56,14 @@ public class Store {
     @Column(name = "LONGITUDE")
     private double longitude;
 
-    @Column(name = "ACCOUNT_NUM")
+    @Column(name = "ACCOUNT_NUM", length = 20)
     private String accountNum;
 
-    @Column(name = "OPEN_TIME", nullable = false)
+    @Column(name = "OPEN_TIME", length = 4, nullable = false)
     @NotNull
     private String openTime;
 
-    @Column(name = "CLOSE_TIME", nullable = false)
+    @Column(name = "CLOSE_TIME", length = 4, nullable = false)
     @NotNull
     private String closeTime;
 }
