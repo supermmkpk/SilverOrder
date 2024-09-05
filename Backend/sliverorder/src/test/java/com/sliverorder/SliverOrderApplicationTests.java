@@ -1,10 +1,10 @@
-package com.second.sliverorder;
+package com.sliverorder;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class SliverorderApplicationTests {
+class SliverOrderApplicationTests {
 
 	@Test
 	void contextLoads() {
