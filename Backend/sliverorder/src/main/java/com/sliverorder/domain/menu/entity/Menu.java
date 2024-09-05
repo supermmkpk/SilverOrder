@@ -1,19 +1,3 @@
-package com.sliverorder.domain.menu.entity;
-
-import jakarta.persistence.Entity;
-import jakarta.persistence.Index;
-import jakarta.persistence.Table;
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
-
-@Entity
-@Getter
-@Setter
-@AllArgsConstructor
-@NoArgsConstructor
-@Table(name="t_user", indexes =
-@Index(name = "idx_userNickname", columnList = "user_nickname"))
-public class Menu {
-}
+version https://git-lfs.github.com/spec/v1
+oid sha256:84929c50ff4f46b0948514ea327253476625e9a1d9327253537738af0d4cd7d5
+size 1389
