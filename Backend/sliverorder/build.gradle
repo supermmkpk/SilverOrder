@@ -22,6 +22,7 @@ dependencies {
 	developmentOnly 'org.springframework.boot:spring-boot-devtools'
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
 	annotationProcessor 'org.springframework.boot:spring-boot-configuration-processor'
+	implementation 'org.springframework.boot:spring-boot-starter-data-jdbc'
 
 	implementation 'commons-io:commons-io:2.6'
 	implementation 'org.apache.commons:commons-collections4:4.4'
@@ -31,7 +32,6 @@ dependencies {
 	implementation "com.squareup.okhttp3:logging-interceptor:3.9.0"
 	implementation "com.google.guava:guava:29.0-jre"
 	annotationProcessor "com.google.guava:guava:29.0-jre"
-	runtimeOnly 'com.oracle.database.jdbc:ojdbc11'
 	implementation "com.auth0:java-jwt:3.10.3"
 	implementation "org.projectlombok:lombok:1.18.20"
 	annotationProcessor "org.projectlombok:lombok:1.18.20"
@@ -55,6 +55,9 @@ dependencies {
 
 	// Redis
 	implementation 'org.springframework.boot:spring-boot-starter-data-redis'
+
+	// MSSQL
+	runtimeOnly 'com.microsoft.sqlserver:mssql-jdbc'
 
 	//Querydsl
 	implementation 'com.querydsl:querydsl-jpa:5.0.0:jakarta'
@@ -84,7 +87,6 @@ dependencies {
 	// 모니터링
 	implementation 'org.springframework.boot:spring-boot-starter-actuator'
 	implementation 'io.micrometer:micrometer-registry-prometheus'
-
 
 	testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
 }
