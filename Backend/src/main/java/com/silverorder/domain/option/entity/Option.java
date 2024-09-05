@@ -26,7 +26,7 @@ public class Option {
     @NotNull
     private OptionCategory optionCategory;
 
-    @Column(name = "OPTION_NAME", length = 20, nullable = false)
+    @Column(name = "OPTION_NAME", length = 50, nullable = false)
     @NotNull
     private String optionName;
 

@@ -1,0 +1,32 @@
+package com.silverorder.domain.payment.entity;
+
+import com.silverorder.domain.user.entity.User;
+import jakarta.persistence.*;
+import jakarta.validation.constraints.NotNull;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+
+@Entity
+@Getter
+@Setter
+@AllArgsConstructor
+@NoArgsConstructor
+@Table(name="T_PAYMENT", indexes =
+@Index(name = "IDX_USER_ID", columnList = "USER_ID"))
+public class Payment {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "PAYMENT_ID",nullable = false)
+    private Long id;
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "USER_ID", nullable = false)
+    @NotNull
+    private User user;
+
+    @Column(name = "PAYMENT_TYPE", nullable = false)
+    @NotNull
+    private int paymentType;
+}

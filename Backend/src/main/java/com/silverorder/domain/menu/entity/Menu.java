@@ -26,18 +26,18 @@ public class Menu {
     @NotNull
     private StoreMenuCategory storeMenuCategory;
 
-    @Column(name = "MENU_NAME", length = 30, nullable = false)
+    @Column(name = "MENU_NAME", length = 50, nullable = false)
     @NotNull
     private String menuName;
 
-    @Column(name = "SIMPLE_NAME", length = 20, nullable = false)
+    @Column(name = "SIMPLE_NAME", length = 50, nullable = false)
     @NotNull
     private String simpleName;
 
-    @Column(name = "MENU_DESC", length = 100)
+    @Column(name = "MENU_DESC", length = 1000)
     private String menuDesc;
 
-    @Column(name = "MENU_STATUS", length = 4, nullable = false)
+    @Column(name = "MENU_STATUS", length = 10, nullable = false)
     @NotNull
     private String menuStatus;
 
@@ -50,4 +50,7 @@ public class Menu {
     @ColumnDefault("0")
     @NotNull
     private int recommend;
+
+    @Column(name = "THUMB", length = 100)
+    private String thumb;
 }

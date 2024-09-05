@@ -54,7 +54,7 @@ public class Store {
     @Column(name = "LONGITUDE")
     private double longitude;
 
-    @Column(name = "ACCOUNT_NUM", length = 20)
+    @Column(name = "ACCOUNT_NUM", length = 30)
     private String accountNum;
 
     @Column(name = "OPEN_TIME", length = 4, nullable = false)
