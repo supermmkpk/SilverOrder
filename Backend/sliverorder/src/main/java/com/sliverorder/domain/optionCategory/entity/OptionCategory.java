@@ -18,7 +18,7 @@ public class OptionCategory {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "OPTION_CATEGORY_ID",nullable = false)
-    private int id;
+    private Long id;
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "STORE_ID", nullable = false)
