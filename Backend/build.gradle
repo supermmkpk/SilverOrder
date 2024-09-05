@@ -57,7 +57,8 @@ dependencies {
 	implementation 'org.springframework.boot:spring-boot-starter-data-redis'
 
 	// MSSQL
-	implementation 'com.microsoft.sqlserver:mssql-jdbc:9.4.0.jre8'
+	//implementation 'com.microsoft.sqlserver:mssql-jdbc:9.4.0.jre8'
+	implementation 'com.microsoft.sqlserver:mssql-jdbc:12.2.0.jre11'
 
 	//Querydsl
 	implementation 'com.querydsl:querydsl-jpa:5.0.0:jakarta'
