@@ -1,0 +1,32 @@
+.up-navbar-container {
+  display: flex;
+  width: calc(360 / 1440 * 100vw);
+  height: calc(60 / 1440 * 100vw);
+  background-color: #dedede;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.upnav-leftside {
+  display: flex;
+  margin-left: calc(10 / 1440 * 100vw);
+  align-items: center;
+}
+
+.move-before-page {
+  width: calc(40 / 1440 * 100vw);
+  height: calc(40 / 1440 * 100vw);
+  cursor: pointer;
+}
+
+.upnav-rightside {
+  display: flex;
+  margin-right: calc(15 / 1440 * 100vw);
+  align-items: center;
+}
+
+.site-notification {
+  width: calc(40 / 1440 * 100vw);
+  height: calc(40 / 1440 * 100vw);
+  cursor: pointer;
+}
