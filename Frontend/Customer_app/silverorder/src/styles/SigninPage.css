@@ -39,13 +39,7 @@
   margin-bottom: calc(15 / 1440 * 100vw);
 }
 
-#signin-input01 {
-  width: calc(300 / 1440 * 100vw);
-  height: calc(45 / 1440 * 100vw);
-  font-size: calc(30 / 1440 * 100vw);
-  border: none;
-}
-
+#signin-input01,
 #signin-input02 {
   width: calc(300 / 1440 * 100vw);
   height: calc(45 / 1440 * 100vw);

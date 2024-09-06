@@ -1,0 +1,71 @@
+.sign-up-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+}
+
+.sign-up-contents {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  height: calc(550 / 1440 * 100vw);
+}
+
+.sign-up-logo {
+  width: calc(200 / 1440 * 100vw);
+  height: calc(180 / 1440 * 100vw);
+  border: calc(2 / 1440 * 100vw) solid #cccccc;
+  border-radius: 90%;
+}
+
+.signup-input-box {
+  border-bottom: calc(2 / 1440 * 100vw) solid black;
+  margin-bottom: calc(15 / 1440 * 100vw);
+}
+
+#signup-input01,
+#signup-input02,
+#signup-input03,
+#signup-input04 {
+  width: calc(300 / 1440 * 100vw);
+  height: calc(45 / 1440 * 100vw);
+  font-size: calc(30 / 1440 * 100vw);
+  border: none;
+}
+
+.signup-btn-box {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
+
+.signup-btn {
+  width: calc(130 / 1440 * 100vw);
+  height: calc(50 / 1440 * 100vw);
+  align-self: center;
+  font-size: calc(35 / 1440 * 100vw);
+  color: #ffffff;
+  cursor: pointer;
+  border-radius: calc(7 / 1440 * 100vw);
+  background: #1428a0;
+  border: none;
+  box-shadow: calc(5 / 1440 * 100vw) calc(5 / 1440 * 100vw)
+    calc(15 / 1440 * 100vw) rgb(89, 89, 89);
+}
+
+.signup-cancel-btn {
+  width: calc(130 / 1440 * 100vw);
+  height: calc(50 / 1440 * 100vw);
+  align-self: center;
+  font-size: calc(35 / 1440 * 100vw);
+  color: black;
+  cursor: pointer;
+  border-radius: calc(7 / 1440 * 100vw);
+  background: #cccccc;
+  border: none;
+  box-shadow: calc(5 / 1440 * 100vw) calc(5 / 1440 * 100vw)
+    calc(15 / 1440 * 100vw) rgb(89, 89, 89);
+}
