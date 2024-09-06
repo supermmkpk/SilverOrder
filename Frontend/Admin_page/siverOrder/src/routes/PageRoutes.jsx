@@ -1,22 +1,3 @@
-import { Route, Routes, Navigate } from "react-router-dom";
-
-
-// 로그인 페이지
-import LoginPage from "../views/LoginPage.jsx";
-// 회원 가입 페이지
-import Signup from "../views/Signup.jsx";
-const PageRoutes = () => {
-
-
-    return (
-        <Routes>
-            {/* 로그인 */}
-            <Route path="/login" element={<LoginPage />} />
-            {/* 회원가입 */}
-            <Route path="/signup" element={<Signup />} />
-
-        </Routes>
-    )
-}
-
-export default PageRoutes;
+version https://git-lfs.github.com/spec/v1
+oid sha256:36878b0d7e16e44b1f14c95bd49d474801c0303fd070b365b09a1009fa85c2d0
+size 664
