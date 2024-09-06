@@ -1,6 +1,6 @@
-import "../styles/MainPage.css";
+import "../styles/StorePage.css";
 
-const MainPage = () => {
+const StorePage = () => {
   return (
     <div className="main-container">
       <h1>안녕하세요 SilverOrder입니다.</h1>
@@ -10,4 +10,4 @@ const MainPage = () => {
   );
 };
 
-export default MainPage;
+export default StorePage;
