@@ -4,7 +4,7 @@ import { persist } from "zustand/middleware";
 const useInfoStore = create(
   persist(
     (set, get) => ({
-      isLogin: false,
+      isLogin: true,
     }),
     {
       name: "info-storage",
