@@ -1,5 +1,5 @@
 import React from 'react';
-
+import './styles/OrderTabs.css'
 const OrderTabs = ({ selectedTab, onTabChange }) => {
   return (
     <div className="order-tabs">

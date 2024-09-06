@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import Navbar from '../components/Navbar/Navbar';
+import Navbar from '../components/Navbar/Navbar'
 import OrderTabs from '../components/Order/OrderTabs';
 import OrderList from '../components/Order/OrderList';
 import OrderDetail from '../components/Order/OrderDetail';
@@ -21,9 +21,9 @@ const OrderPage = () => {
   return (
     <div>
       <Navbar />
-      <div className="order-page-container">
+      <div>
         <OrderTabs selectedTab={selectedTab} onTabChange={handleTabChange} />
-        <div className="order-content">
+        <div>
           <OrderList selectedTab={selectedTab} onOrderSelect={handleOrderSelect} />
           {selectedOrder && <OrderDetail order={selectedOrder} />}
         </div>
