@@ -30,10 +30,6 @@ public class OwnerReview {
     @Column(name = "COMMENT_ID", nullable = false)
     private Long id;
 
-    @OneToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "REVIEW_ID", nullable = false)
-    private UserReview userReview; //외래키
-
     @Column(name = "CONTENT", length = 2000)
     private String content;
 
@@ -44,5 +40,9 @@ public class OwnerReview {
     @Column(name = "MODIFIED_DATE", nullable = false)
     @UpdateTimestamp
     private LocalDate modifiedDate;
+
+    @OneToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "REVIEW_ID", nullable = false)
+    private UserReview userReview; //외래키
 
 }

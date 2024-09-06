@@ -12,17 +12,11 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 @Table(name = "T_REVIEW")
-@IdClass(ReviewId.class)
 public class UserReview {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "REVIEW_ID", nullable = false)
     private Long id;
-
-    @Id
-    @OneToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "ORDER_ID", nullable = false)
-    private Order order; //외래키
 
     @Column(name = "CONTENT", length = 2000)
     private String content;
@@ -30,8 +24,12 @@ public class UserReview {
     @Column(name = "RATING", nullable = false)
     private int rating;
 
+    @OneToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "ORDER_ID", nullable = false)
+    private Order order; //외래키
+
     @ManyToOne(fetch = FetchType.LAZY)
-    @Column(name = "USER_ID", nullable = false)
+    @JoinColumn(name = "USER_ID", nullable = false)
     private User user; //외래키
 
 }
