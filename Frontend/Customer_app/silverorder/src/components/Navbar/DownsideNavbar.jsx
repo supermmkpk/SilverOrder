@@ -22,7 +22,7 @@ const DownsideNavbar = () => {
         <img
           className="downnav-btn"
           src="/scroll.png"
-          alt="주문 내역 확인"
+          alt="지난 주문 내역 확인"
           onClick={go_to_orderlist}
         />
       </div>
