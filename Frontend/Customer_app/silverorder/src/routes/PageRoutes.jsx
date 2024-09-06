@@ -9,7 +9,13 @@ import SigninPage from "../views/SigninPage.jsx";
 import SignupPage from "../views/SignupPage.jsx";
 
 // 가게 페이지
-import MainPage from "../views/MainPage.jsx";
+import StorePage from "../views/StorePage.jsx";
+
+// 주문 내역 확인 페이지
+import OrderlistPage from "../views/OrderlistPage.jsx";
+
+// 마이 페이지
+import MyPage from "../views/MyPage.jsx";
 
 const PageRoutes = () => {
   return (
@@ -24,7 +30,13 @@ const PageRoutes = () => {
       <Route path="/signin" element={<SigninPage />} />
 
       {/* 가게 페이지 */}
-      <Route path="/store" element={<MainPage />} />
+      <Route path="/store" element={<StorePage />} />
+
+      {/* 주문 내역 확인 페이지 */}
+      <Route path="/orderlist" element={<OrderlistPage />} />
+
+      {/* 마이 페이지 */}
+      <Route path="/mypage" element={<MyPage />} />
     </Routes>
   );
 };
