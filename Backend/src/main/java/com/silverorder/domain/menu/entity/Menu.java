@@ -38,7 +38,7 @@ public class Menu {
 
     @Column(name = "MENU_STATUS", length = 10, nullable = false)
     @NotNull
-    private String menuStatus;
+    private int menuStatus;
 
     @Column(name = "MENU_PRICE", nullable = false)
     @ColumnDefault("0")

@@ -11,11 +11,19 @@ import SignupPage from "../views/SignupPage.jsx";
 // 가게 페이지
 import StorePage from "../views/StorePage.jsx";
 
+// 마이 페이지
+import MyPage from "../views/MyPage.jsx";
+
+// 회원 정보 변경 페이지
+import ChangeInfoPage from "../views/ChangeInfoPage.jsx";
+
+// 주문 현황 확인 페이지
+import OrderstatePage from "../views/OrderstatePage.jsx";
+
 // 주문 내역 확인 페이지
 import OrderlistPage from "../views/OrderlistPage.jsx";
 
-// 마이 페이지
-import MyPage from "../views/MyPage.jsx";
+import MycardPage from "../views/MycardPage.jsx";
 
 const PageRoutes = () => {
   return (
@@ -32,11 +40,20 @@ const PageRoutes = () => {
       {/* 가게 페이지 */}
       <Route path="/store" element={<StorePage />} />
 
+      {/* 마이 페이지 */}
+      <Route path="/mypage" element={<MyPage />} />
+
+      {/* 회원정보 변경 페이지 */}
+      <Route path="/changeInfo" element={<ChangeInfoPage />} />
+
+      {/* 주문 현황 확인 페이지 */}
+      <Route path="/orderstate" element={<OrderstatePage />} />
+
       {/* 주문 내역 확인 페이지 */}
       <Route path="/orderlist" element={<OrderlistPage />} />
 
-      {/* 마이 페이지 */}
-      <Route path="/mypage" element={<MyPage />} />
+      {/* 내 카드 페이지 */}
+      <Route path="/mycard" element={<MycardPage />} />
     </Routes>
   );
 };
