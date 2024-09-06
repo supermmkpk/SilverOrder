@@ -39,7 +39,7 @@ public class UserController {
     }
 
     @Operation(summary="회원 삭제", description = "회원 고유번호로 회원 삭제")
-    @GetMapping("/me")
+    @DeleteMapping("/me")
     public ResponseEntity<?> deleteUser(@RequestParam("id") Long id) throws Exception {
         userService.deleteUser(id);
         return new ResponseEntity<>("회원 탈퇴 성공", HttpStatus.OK);

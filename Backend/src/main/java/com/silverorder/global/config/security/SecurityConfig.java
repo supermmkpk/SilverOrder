@@ -30,7 +30,7 @@ import java.util.Arrays;
  * <pre>
  *     Session 인증 비활성화 + Jwt 필터 체인 추가
  * </pre>
- * @author 채기훈
+ * @author 박봉균
  * @since JDK17
  */
 @Configuration
@@ -43,7 +43,7 @@ public class SecurityConfig implements WebSocketMessageBrokerConfigurer {
     private static final String[] AUTH_WHITELIST = {
             "/silverorder/",
             "/auth/**",
-            "/silverorcer/auth/**",
+            "/silverorder/auth/**",
             "/swagger-ui/**",
             "/swagger-ui-custom.html",
             "/v3/api-docs/**",
