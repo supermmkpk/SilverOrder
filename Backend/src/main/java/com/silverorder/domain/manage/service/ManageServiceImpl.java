@@ -6,7 +6,9 @@ import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 
 /**
- *
+ * 은행 API 서비스 구현체
+ * @author 채기훈
+ * @since JDK17 Eclipse Temurin
  */
 @Service
 public class ManageServiceImpl implements ManageService {
