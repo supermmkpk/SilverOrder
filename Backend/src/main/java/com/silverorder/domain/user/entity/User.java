@@ -2,16 +2,21 @@ package com.silverorder.domain.user.entity;
 
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotNull;
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 
 import java.time.LocalDateTime;
 
+
+/**
+ * <pre>
+ *     회원 도메인 클래스
+ * </pre>
+ * @author 박봉균
+ * @since JDK17 Eclipse Temurin
+ */
 @Entity
 @Getter
-@Setter
+@Builder
 @AllArgsConstructor
 @NoArgsConstructor
 @Table(name="T_USER")

@@ -58,7 +58,7 @@ public class SwaggerConfig {
     }
 
     private Info apiInfo() {
-        return new Info().title("Study Cow API 문서")
+        return new Info().title("Silver Order API 문서")
                 .description("<h3>REST API 문서 내용을 다음과 같이 제공합니다.</h3>")
                 .version("1.0.0")
                 .license(new License().name("Apache 2.0").url("http://springdoc.org"));
