@@ -1,0 +1,45 @@
+/* OrderTabs 컴포넌트 고정 위치 변경 */
+.order-tabs {
+  position: fixed; 
+  top: 70px;
+  left: 0; 
+  right: 0;
+  width: 100%;
+  display: flex;
+  background-color: #f5f5f5;
+  border-radius: 8px;
+  margin-left: 250px;
+  padding: 10px 20px;
+  z-index: 1000;
+}
+
+.order-tabs button {
+  margin-right: 200px;
+  padding: 20px 40px;
+  border: none;
+  border-radius: 90px;
+  background-color: #e0e0e0;
+  cursor: pointer;
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.order-tabs button:last-child {
+  margin-right: 0;
+}
+
+.order-tabs button.active {
+  background-color: #2D8DFF;
+  color: white;
+}
+
+
+@media (max-width: 600px) {
+  .order-tabs {
+      padding: 5px 10px;
+  }
+  .order-tabs button {
+      padding: 10px 20px;
+      font-size: 16px;
+  }
+}
