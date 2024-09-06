@@ -30,3 +30,10 @@
   height: calc(40 / 1440 * 100vw);
   cursor: pointer;
 }
+
+.order-state-check {
+  width: calc(40 / 1440 * 100vw);
+  height: calc(40 / 1440 * 100vw);
+  cursor: pointer;
+  margin-right: calc(10 / 1440 * 100vw);
+}
