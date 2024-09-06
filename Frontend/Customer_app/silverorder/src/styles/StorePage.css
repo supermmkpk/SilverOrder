@@ -1,13 +1,34 @@
-.main-container h1 {
-  font-size: calc(40 / 1440 * 100vw);
-}
-
-.main-container h2 {
-  font-size: calc(20 / 1440 * 100vw);
-}
-
-.colorbox {
+.main-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
   width: 100%;
-  height: calc(500 / 1440 * 100vw);
-  background-color: aqua;
+}
+
+.store-title {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: calc(30 / 1440 * 100vw) 0;
+}
+
+.store-title h1 {
+  font-weight: bold;
+  font-size: calc(40 / 1440 * 100vw);
+  margin: 0;
+}
+
+.SST-search-btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+}
+
+.SST-search-img {
+  width: calc(250 / 1440 * 100vw);
+  height: calc(250 / 1440 * 100vw);
+  border: calc(5 / 1440 * 100vw) solid black;
+  border-radius: 90%;
 }
