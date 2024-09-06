@@ -8,6 +8,7 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 public class RequestMenuDto {
+    private long menuId;
     private long menuCategoryId;
     private String menuName;
     private String simpleName;
@@ -16,4 +17,5 @@ public class RequestMenuDto {
     private int menuPrice;
     private int recommend;
     private String MenuThumb;
+    private long[] useOptionCategory;
 }
