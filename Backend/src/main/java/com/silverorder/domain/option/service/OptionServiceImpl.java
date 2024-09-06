@@ -35,6 +35,7 @@ public class OptionServiceImpl implements OptionService{
      * @throws Exception
      */
     @Override
+    @Transactional
     public void saveOptionCategory(RequestOptionCategoryDto requestOptionCategoryDto) throws Exception {
         //유저 확인 로직
 
@@ -63,6 +64,7 @@ public class OptionServiceImpl implements OptionService{
     }
 
     @Override
+    @Transactional
     public void modifyOptionCategory(long optionCategoryId, RequestOptionCategoryDto requestOptionCategoryDto) throws Exception {
         //유저 확인 로직
 
@@ -75,5 +77,18 @@ public class OptionServiceImpl implements OptionService{
         optionRepository.modifyOptionCategory(optionCategory,
                 requestOptionCategoryDto.getOptionCategoryTitle(),
                 requestOptionCategoryDto.getOptionType());
+
+        //옵션 카테고리 요청 내 옵션리스트 확인
+        RequestOptionDto requestOptionDto =
+                requestOptionCategoryDto.getRequestOptionDto();
+
+        // 옵션목록 존재 시
+        if(requestOptionDto.getOptionDtoList() != null
+                && !requestOptionDto.getOptionDtoList().isEmpty()) {
+            for (OptionDto options : requestOptionDto.getOptionDtoList()) {
+                //옵션리스트 등록
+                optionRepository.saveOption(optionCategory, options);
+            }
+        }
     }
 }
