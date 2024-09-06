@@ -1,6 +1,5 @@
 package com.silverorder.domain.option.entity;
 
-import com.silverorder.domain.optionCategory.entity.OptionCategory;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotNull;
 import lombok.AllArgsConstructor;
@@ -11,7 +10,6 @@ import org.hibernate.annotations.ColumnDefault;
 
 @Entity
 @Getter
-@Setter
 @AllArgsConstructor
 @NoArgsConstructor
 @Table(name="T_OPTION")
@@ -34,4 +32,5 @@ public class Option {
     @ColumnDefault("0")
     @NotNull
     private int optionPrice;
+
 }

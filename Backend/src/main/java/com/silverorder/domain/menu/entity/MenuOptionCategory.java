@@ -1,7 +1,6 @@
-package com.silverorder.domain.menuOptionCategory.entity;
+package com.silverorder.domain.menu.entity;
 
-import com.silverorder.domain.menu.entity.Menu;
-import com.silverorder.domain.optionCategory.entity.OptionCategory;
+import com.silverorder.domain.option.entity.OptionCategory;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotNull;
 import lombok.AllArgsConstructor;
@@ -11,11 +10,12 @@ import lombok.Setter;
 
 @Entity
 @Getter
-@Setter
 @AllArgsConstructor
 @NoArgsConstructor
-@Table(name = "T_OPTION_CATEGORY", uniqueConstraints =
-@UniqueConstraint(name = "UNI_MENU_OPTION_CATEGORY", columnNames = {"OPTION_CATEGORY_ID", "MENU_ID"}))
+@Table(
+        name = "T_OPTION_CATEGORY",
+        uniqueConstraints = @UniqueConstraint(name = "UNI_MENU_OPTION_CATEGORY", columnNames = {"OPTION_CATEGORY_ID", "MENU_ID"})
+)
 public class MenuOptionCategory {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

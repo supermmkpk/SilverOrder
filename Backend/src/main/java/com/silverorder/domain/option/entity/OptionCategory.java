@@ -1,4 +1,4 @@
-package com.silverorder.domain.storeMenuCategory.entity;
+package com.silverorder.domain.option.entity;
 
 import com.silverorder.domain.store.entity.Store;
 import jakarta.persistence.*;
@@ -10,14 +10,13 @@ import lombok.Setter;
 
 @Entity
 @Getter
-@Setter
 @AllArgsConstructor
 @NoArgsConstructor
-@Table(name="T_STORE_MENU_CATEGORY")
-public class StoreMenuCategory {
+@Table(name="T_OPTION_CATEGORY")
+public class OptionCategory {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "MENU_CATEGORY_ID",nullable = false)
+    @Column(name = "OPTION_CATEGORY_ID",nullable = false)
     private Long id;
 
     @ManyToOne(fetch = FetchType.LAZY)
@@ -25,7 +24,11 @@ public class StoreMenuCategory {
     @NotNull
     private Store store;
 
-    @Column(name = "MENU_CATEGORY_NAME", length = 20, nullable = false)
+    @Column(name = "OPTION_CATEGORY_TITLE", length = 20, nullable = false)
     @NotNull
-    private String menuCategoryName;
+    private String optionCategoryTitle;
+
+    @Column(name = "OPTION_TYPE", nullable = false)
+    @NotNull
+    private int optionType;
 }

@@ -1,6 +1,6 @@
 package com.silverorder.domain.menu.entity;
 
-import com.silverorder.domain.storeMenuCategory.entity.StoreMenuCategory;
+import com.silverorder.domain.store.entity.StoreMenuCategory;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotNull;
 import lombok.AllArgsConstructor;
@@ -11,7 +11,6 @@ import org.hibernate.annotations.ColumnDefault;
 
 @Entity
 @Getter
-@Setter
 @AllArgsConstructor
 @NoArgsConstructor
 @Table(name="T_MENU")

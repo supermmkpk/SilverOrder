@@ -1,6 +1,5 @@
-package com.silverorder.domain.optionCategory.entity;
+package com.silverorder.domain.store.entity;
 
-import com.silverorder.domain.store.entity.Store;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotNull;
 import lombok.AllArgsConstructor;
@@ -13,11 +12,11 @@ import lombok.Setter;
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
-@Table(name="T_OPTION_CATEGORY")
-public class OptionCategory {
+@Table(name="T_STORE_MENU_CATEGORY")
+public class StoreMenuCategory {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "OPTION_CATEGORY_ID",nullable = false)
+    @Column(name = "MENU_CATEGORY_ID",nullable = false)
     private Long id;
 
     @ManyToOne(fetch = FetchType.LAZY)
@@ -25,11 +24,7 @@ public class OptionCategory {
     @NotNull
     private Store store;
 
-    @Column(name = "OPTION_CATEGORY_TITLE", length = 20, nullable = false)
+    @Column(name = "MENU_CATEGORY_NAME", length = 20, nullable = false)
     @NotNull
-    private String optionCategoryTitle;
-
-    @Column(name = "OPTION_TYPE", nullable = false)
-    @NotNull
-    private int optionType;
+    private String menuCategoryName;
 }
