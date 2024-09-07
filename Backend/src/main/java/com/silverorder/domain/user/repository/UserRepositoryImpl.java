@@ -40,10 +40,10 @@ public class UserRepositoryImpl implements UserRepository {
     public UserDto findByUserEmail(String email) throws PersistenceException {
         return queryFactory
                 .select(Projections.constructor(UserDto.class,
-                    user.id,
+                        user.id,
                         user.userEmail,
                         user.userPassword,
-                        user.userStatus,
+                        user.userRole,
                         user.userJoinDate,
                         user.userUpdateDate
                 ))
@@ -66,7 +66,7 @@ public class UserRepositoryImpl implements UserRepository {
                         user.id,
                         user.userEmail,
                         user.userPassword,
-                        user.userStatus,
+                        user.userRole,
                         user.userJoinDate,
                         user.userUpdateDate
                 ))
@@ -77,8 +77,9 @@ public class UserRepositoryImpl implements UserRepository {
 
     /**
      * 회원 정보 저장(회원가입)
+     *
      * @param user 회원 엔터티 객체
-     * @throws PersistenceException  JPA 표준 예외
+     * @throws PersistenceException JPA 표준 예외
      */
     @Override
     public void insertUser(User user) throws PersistenceException {

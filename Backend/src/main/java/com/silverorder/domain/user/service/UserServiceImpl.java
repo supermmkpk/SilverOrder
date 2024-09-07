@@ -24,20 +24,21 @@ import java.util.stream.Collectors;
  * <pre>
  *     회원관리 서비스 구현 클래스
  * </pre>
+ *
  * @author 박봉균
  * @since JDK17 Eclipse Temurin
  */
 @Service
 @RequiredArgsConstructor
 @Transactional(readOnly = true)
-public class UserServiceImpl implements UserService  {
+public class UserServiceImpl implements UserService {
 
     private final UserRepository userRepository;
     private final JwtUtil jwtUtil;
     private final PasswordEncoder passwordEncoder;
 
     /**
-     *  로그인 메서드
+     * 로그인 메서드
      *
      * @param loginRequestDto 로그인 요청 정보
      * @return LoginResponseDto 로그인 응답 정보
@@ -49,11 +50,11 @@ public class UserServiceImpl implements UserService  {
 
         UserDto userDto = userRepository.findByUserEmail(userEmail);
 
-        if(userDto == null) {
+        if (userDto == null) {
             throw new CustomException(ErrorCode.USER_NOT_FOUND);
         }
 
-        if(!passwordEncoder.matches(userPassword, userDto.getUserPassword())) {
+        if (!passwordEncoder.matches(userPassword, userDto.getUserPassword())) {
             throw new CustomException(ErrorCode.WRONG_PASSWORD);
         }
 
@@ -70,10 +71,10 @@ public class UserServiceImpl implements UserService  {
      */
     @Transactional
     @Override
-    public void register(RegisterRequestDto registerRequestDto){
+    public void register(RegisterRequestDto registerRequestDto) {
 
         // 이메일 중복 체크
-        if(userRepository.findByUserEmail(registerRequestDto.getUserEmail()) != null){
+        if (userRepository.findByUserEmail(registerRequestDto.getUserEmail()) != null) {
             throw new CustomException(ErrorCode.DUPLICATE_USEREMAIL);
         }
 
@@ -95,7 +96,7 @@ public class UserServiceImpl implements UserService  {
      * @return UserInfoDto 사용자 정보 반환
      */
     @Override
-    public UserDto getUserInfo(Long userId){
+    public UserDto getUserInfo(Long userId) {
         return userRepository.findByUserId(userId);
     }
 

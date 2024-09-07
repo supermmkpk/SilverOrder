@@ -13,6 +13,7 @@ import java.util.List;
  * <pre>
  *     SpringSecurity
  * </pre>
+ *
  * @author 박봉균
  * @since JDK17 Eclipse Temurin
  */
@@ -37,6 +38,7 @@ public class CustomUserDetails implements UserDetails {
     public String getUsername() {
         return user.getUserEmail();
     }
+
     @Override
     public boolean isAccountNonExpired() {
         return true;

@@ -18,6 +18,7 @@ import com.silverorder.domain.user.repository.UserRepository;
  * <pre>
  *     유저 로그인을 위한 UserDetailService
  * </pre>
+ *
  * @author 박봉균
  * @since JDK17
  */
@@ -31,6 +32,7 @@ public class CustomUserDetailsService implements UserDetailsService {
 
     /**
      * 회원 고유번호로 조회, UserDetails 반환
+     *
      * @param id 회원 고유번호
      * @return UserDetails
      * @throws UsernameNotFoundException
@@ -39,7 +41,7 @@ public class CustomUserDetailsService implements UserDetailsService {
     public UserDetails loadUserByUsername(String id) throws UsernameNotFoundException {
         UserDto userDto = userRepository.findByUserId(Long.parseLong(id));
 
-        if(userDto == null) {
+        if (userDto == null) {
             throw new CustomException(ErrorCode.USER_NOT_FOUND);
         }
 

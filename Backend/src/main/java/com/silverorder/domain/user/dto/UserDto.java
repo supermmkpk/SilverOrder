@@ -17,13 +17,15 @@ import java.time.LocalDateTime;
  * <pre>
  *     회원 DTO 클래스
  * </pre>
+ *
  * @author 박봉균
  * @since JDK17 Eclipse Temurin
  */
-@Getter
-@Setter
+
 @AllArgsConstructor
 @NoArgsConstructor
+@Getter
+@Setter
 public class UserDto {
 
     private Long userId;
@@ -32,7 +34,7 @@ public class UserDto {
 
     private String userPassword;
 
-    private int userStatus;
+    private UserRole userRole;
 
     private LocalDateTime userJoinDate;
 
@@ -40,6 +42,7 @@ public class UserDto {
 
     /**
      * DTO를 회원 엔터티로 변환하는 함수
+     *
      * @return User
      */
     public User toEntity() {
@@ -48,7 +51,7 @@ public class UserDto {
                 .userEmail(this.userEmail)
                 .userPassword(this.userPassword)
                 .userJoinDate(this.userJoinDate)
-                .userStatus(this.userStatus)
+                .userRole(this.userRole)
                 .userUpdateDate(this.userUpdateDate)
                 .build();
     }
