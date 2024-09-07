@@ -4,6 +4,8 @@ import com.querydsl.jpa.impl.JPAQueryFactory;
 import com.silverorder.domain.menu.dto.RequestMenuCategoryDto;
 import com.silverorder.domain.menu.dto.RequestMenuDto;
 import com.silverorder.domain.menu.entity.Menu;
+import com.silverorder.domain.menu.entity.MenuOptionCategory;
+import com.silverorder.domain.option.entity.OptionCategory;
 import com.silverorder.domain.store.entity.Store;
 import com.silverorder.domain.store.entity.StoreMenuCategory;
 import jakarta.persistence.EntityManager;
@@ -28,7 +30,7 @@ public class MenuRepositoryImpl implements MenuRepository{
     private final JPAQueryFactory queryFactory;
 
     @Override
-    public long saveMenu(StoreMenuCategory storeMenuCategory, RequestMenuDto requestMenuDto) throws PersistenceException {
+    public Menu saveMenu(StoreMenuCategory storeMenuCategory, RequestMenuDto requestMenuDto) throws PersistenceException {
         try {
             Menu menu = new Menu(
                     null,
@@ -45,9 +47,44 @@ public class MenuRepositoryImpl implements MenuRepository{
             em.persist(menu);
             em.flush();
 
-            return menu.getId();
+            return menu;
         } catch(Exception e){
             throw new PersistenceException("메뉴 등록 중 에러 발생", e);
+        }
+    }
+
+    @Override
+    public void saveMenuOptionCategory(Menu menu, OptionCategory optionCategory) {
+        try {
+            MenuOptionCategory menuOptionCategory = new MenuOptionCategory(
+                    null,
+                    optionCategory,
+                    menu
+            );
+
+            em.persist(menuOptionCategory);
+            em.flush();
+        } catch(Exception e){
+            throw new PersistenceException("메뉴 옵션 관계 등록 중 에러 발생", e);
+        }
+    }
+
+    @Override
+    public void saveStoreMenuCategory(Store store, String menuCategoryName) throws PersistenceException {
+        try{
+            //메뉴 카테고리 생성 전처리
+            StoreMenuCategory storeMenuCategory = new StoreMenuCategory(
+                    null,
+                    store,
+                    menuCategoryName
+            );
+
+            //메뉴 카테고리 insert
+            em.persist(storeMenuCategory);
+            em.flush();
+
+        }catch(Exception e){
+            throw new PersistenceException("메뉴 카테고리 등록 중 에러 발생", e);
         }
     }
 }
