@@ -42,23 +42,18 @@ public class SwaggerConfig {
         return new OpenAPI()
                 .addServersItem(server)
                 .info(apiInfo())
-                .components(new Components());
-//                        .addSecuritySchemes("basicScheme",
-//                                new SecurityScheme()
-//                                        .type(SecurityScheme.Type.HTTP)
-//                                        .scheme("basic"))
-//                        .addSecuritySchemes("bearerAuth",
-//                                new SecurityScheme()
-//                                        .type(SecurityScheme.Type.HTTP)
-//                                        .scheme("bearer")
-//                                        .bearerFormat("JWT"))
-//                );
-
-                //.addSecurityItem(new SecurityRequirement().addList("bearerAuth"));
+                .components(new Components()
+                        .addSecuritySchemes("bearerAuth",
+                                new SecurityScheme()
+                                        .type(SecurityScheme.Type.HTTP)
+                                        .scheme("bearer")
+                                        .bearerFormat("JWT"))
+                )
+                .addSecurityItem(new SecurityRequirement().addList("bearerAuth"));
     }
 
     private Info apiInfo() {
-        return new Info().title("Study Cow API 문서")
+        return new Info().title("Silver Order API 문서")
                 .description("<h3>REST API 문서 내용을 다음과 같이 제공합니다.</h3>")
                 .version("1.0.0")
                 .license(new License().name("Apache 2.0").url("http://springdoc.org"));
