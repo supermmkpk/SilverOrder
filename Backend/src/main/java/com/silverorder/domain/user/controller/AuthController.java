@@ -35,8 +35,9 @@ public class AuthController {
      */
     @PostMapping("/login")
     @Operation(summary = "로그인 요청", description = "회원 이메일과 비밀번호로 로그인을 요청합니다.")
-    public ResponseEntity<?> getMemberProfile(@Valid @RequestBody LoginRequestDto requestDto) throws Exception {
+    public ResponseEntity<?> login(@Valid @RequestBody LoginRequestDto requestDto) throws Exception {
         LoginResponseDto responseDto = userService.login(requestDto);
+        responseDto.setUserPassword(null);
         return new ResponseEntity<>(responseDto, HttpStatus.OK);
     }
 
@@ -47,6 +48,7 @@ public class AuthController {
      * @return ResponseEntity
      */
     @Operation(summary = "일반 회원가입", description = "일반 회원 정보를 DB에 영속화합니다.")
+    @ResponseStatus(HttpStatus.CREATED)
     @PostMapping("/register/general")
     public ResponseEntity<?> registerGeneralUser(@RequestBody @Valid RegisterRequestDto requestDto) throws Exception {
         requestDto.setUserRole(UserRole.ROLE_GENERAL);
@@ -61,6 +63,7 @@ public class AuthController {
      * @return ResponseEntity
      */
     @Operation(summary = "관리자 회원가입", description = "관리자 회원 정보를 DB에 영속화합니다.")
+    @ResponseStatus(HttpStatus.CREATED)
     @PostMapping("/register/admin")
     public ResponseEntity<?> registerAdminUser(@RequestBody @Valid RegisterRequestDto requestDto) throws Exception {
         requestDto.setUserRole(UserRole.ROLE_ADMIN);

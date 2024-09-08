@@ -32,14 +32,18 @@ public class UserController {
     private final UserService userService;
 
     @Operation(summary = "회원 정보 조회", description = "현재 로그인한 회원 조회")
+    @ResponseStatus(HttpStatus.OK)
     @GetMapping("/me")
     public ResponseEntity<?> getUser(
-            @AuthenticationPrincipal CustomUserDetails customUserDetails) throws Exception {
+            @AuthenticationPrincipal CustomUserDetails customUserDetails
+    ) throws Exception {
         UserDto userDto = userService.getUserInfo(customUserDetails.getUser().getUserId());
+        userDto.setUserPassword(null);
         return new ResponseEntity<>(userDto, HttpStatus.OK);
     }
 
-    @Operation(summary = "회원 삭제", description = "회원 고유번호로 회원 삭제")
+    @Operation(summary = "회원 탈퇴", description = "회원 고유번호로 회원 삭제")
+    @ResponseStatus(HttpStatus.OK)
     @DeleteMapping("/me")
     public ResponseEntity<?> deleteUser(@RequestParam("id") Long id) throws Exception {
         userService.deleteUser(id);
