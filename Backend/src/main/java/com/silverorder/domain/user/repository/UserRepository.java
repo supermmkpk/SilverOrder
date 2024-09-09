@@ -21,4 +21,6 @@ public interface UserRepository {
     UserDto findByUserId(Long id) throws PersistenceException;
 
     void deleteUser(Long userId) throws PersistenceException;
+
+    void addAdminWithStoreId(User user, Long storeId) throws PersistenceException;
 }

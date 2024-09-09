@@ -2,6 +2,7 @@ package com.silverorder.domain.user.repository;
 
 import com.querydsl.core.types.Projections;
 import com.querydsl.jpa.impl.JPAQueryFactory;
+
 import com.silverorder.domain.user.dto.UserDto;
 import com.silverorder.domain.user.entity.User;
 import jakarta.persistence.EntityManager;
@@ -11,6 +12,8 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Repository;
 
 import static com.silverorder.domain.user.entity.QUser.user;
+import static com.silverorder.domain.store.entity.QStore.store;
+
 
 /**
  * <pre>
@@ -86,6 +89,17 @@ public class UserRepositoryImpl implements UserRepository {
     @Override
     public void insertUser(User user) throws PersistenceException {
         em.persist(user);
+    }
+
+    @Override
+    public void addAdminWithStoreId(User user, Long storeId) throws PersistenceException {
+        em.persist(user);
+
+        queryFactory
+                .update(store)
+                .set(store.user, user)
+                .where(store.id.eq(storeId))
+                .execute();
     }
 
     @Override

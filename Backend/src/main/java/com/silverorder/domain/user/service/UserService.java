@@ -2,6 +2,8 @@ package com.silverorder.domain.user.service;
 
 
 import com.silverorder.domain.user.dto.*;
+import com.silverorder.domain.user.entity.User;
+import jakarta.persistence.PersistenceException;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 
@@ -27,4 +29,6 @@ public interface UserService {
 
     /** 회원 탈퇴 */
     void deleteUser(Long userId) throws Exception;
+
+    void registerAdmin(AdminRegisterRequestDto adminRegisterRequestDto) throws Exception;
 }
