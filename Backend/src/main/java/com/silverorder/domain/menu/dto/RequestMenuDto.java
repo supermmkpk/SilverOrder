@@ -13,7 +13,7 @@ public class RequestMenuDto {
     private String menuName;
     private String simpleName;
     private String menuDesc;
-    private int menuStatus;
+    private MenuStatus menuStatus;
     private int menuPrice;
     private int recommend;
     private String MenuThumb;
