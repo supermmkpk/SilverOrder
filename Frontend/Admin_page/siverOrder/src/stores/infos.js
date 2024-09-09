@@ -3,7 +3,7 @@ import { persist } from "zustand/middleware";
 import axios from "axios";
 import Notiflix from "notiflix";
 
-const API_URL = "http://localhost:8080"
+const API_URL = "http://localhost:8080/silverorder/"
 
 const useInfoStore = create(
     persist(
@@ -12,15 +12,16 @@ const useInfoStore = create(
             token: null,
 
             // 회원 가입
-            sendRegisterRequest: async (userEmail, userPassword, userBirth) => {
+            sendRegisterRequest: async (userEmail, userPassword, userBirth, storeId) => {
                 const data = {
                   userEmail,
                   userPassword,
                   userBirth,
+                  storeId,
                 };
                 try {
                   const response = await axios.post(
-                    API_URL + "api/v1/auth/register",
+                    API_URL + "auth/register/admin",
                     data
                   );
                   if (response.status === 201) {
@@ -35,11 +36,11 @@ const useInfoStore = create(
               },
               
               // 로그인
-              sendLoginRequest: async (userEmail, userPassword) => {
-                const data = { userEmail, userPassword };
+              sendLoginRequest: async (userEmail, password) => {
+                const data = { userEmail, password };
                 try {
                   const response = await axios.post(
-                    API_URL + "api/v1/auth/login",
+                    API_URL + "auth/login",
                     data
                   );
                   // console.log(response.data);
@@ -47,14 +48,6 @@ const useInfoStore = create(
                     set({
                       token: response.data.token ?? null,
                       isLogin: true,
-                      userInfo: {
-                        userId: response.data.userId ?? 0,
-                        userEmail: response.data.userEmail ?? null,
-                        userBirth: response.data.userBirth ?? null,
-                        userRole: response.data.userRole ?? null,
-                        userJoinDate: response.data.userJoinDate ?? null,
-                        userUpdateDate: response.data.userUpdateDate ?? null,
-                      },
                     });
                     return true;
                   } else {
