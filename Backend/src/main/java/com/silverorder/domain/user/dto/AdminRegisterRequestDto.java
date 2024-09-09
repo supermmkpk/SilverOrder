@@ -1,5 +1,6 @@
 package com.silverorder.domain.user.dto;
 
+import com.silverorder.domain.user.entity.User;
 import jakarta.validation.constraints.Min;
 import jakarta.validation.constraints.NotNull;
 import lombok.*;
@@ -10,6 +11,9 @@ import lombok.*;
 @Setter
 public class AdminRegisterRequestDto extends RegisterRequestDto {
     @NotNull
-    public String merchantId;
+    public Long storeId;
 
+    public User toEntity() {
+        return super.toEntity();
+    }
 }
