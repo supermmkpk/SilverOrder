@@ -12,9 +12,8 @@ import lombok.Setter;
 @Getter
 @AllArgsConstructor
 @NoArgsConstructor
-@Table(
-        name = "T_OPTION_CATEGORY",
-        uniqueConstraints = @UniqueConstraint(name = "UNI_MENU_OPTION_CATEGORY", columnNames = {"OPTION_CATEGORY_ID", "MENU_ID"})
+@Table(name = "T_MENU_OPTION_CATEGORY", uniqueConstraints =
+@UniqueConstraint(name = "UNI_MENU_OPTION_CATEGORY", columnNames = {"OPTION_CATEGORY_ID", "MENU_ID"})
 )
 public class MenuOptionCategory {
     @Id

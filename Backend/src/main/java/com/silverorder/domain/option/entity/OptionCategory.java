@@ -1,5 +1,6 @@
 package com.silverorder.domain.option.entity;
 
+import com.silverorder.domain.option.dto.OptionType;
 import com.silverorder.domain.store.entity.Store;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotNull;
@@ -30,5 +31,6 @@ public class OptionCategory {
 
     @Column(name = "OPTION_TYPE", nullable = false)
     @NotNull
-    private int optionType;
+    @Enumerated(EnumType.STRING)
+    private OptionType optionType;
 }

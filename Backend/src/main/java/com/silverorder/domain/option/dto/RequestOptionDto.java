@@ -10,6 +10,6 @@ import java.util.List;
 @AllArgsConstructor
 @NoArgsConstructor
 public class RequestOptionDto {
-    private long optionCategoryId;
+    private Long optionCategoryId;
     private List<OptionDto> optionDtoList;
 }

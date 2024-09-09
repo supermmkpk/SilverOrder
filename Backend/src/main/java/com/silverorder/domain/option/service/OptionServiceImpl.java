@@ -2,16 +2,21 @@ package com.silverorder.domain.option.service;
 
 import com.silverorder.domain.option.dto.OptionDto;
 import com.silverorder.domain.option.dto.RequestOptionCategoryDto;
-import com.silverorder.domain.option.dto.RequestOptionDto;
+import com.silverorder.domain.option.dto.ResponseOptionDto;
 import com.silverorder.domain.option.entity.OptionCategory;
 import com.silverorder.domain.option.repository.OptionCategoryJpaRepository;
 import com.silverorder.domain.option.repository.OptionRepository;
 import com.silverorder.domain.store.entity.Store;
+import com.silverorder.domain.user.dto.UserRole;
+import com.silverorder.domain.user.entity.User;
+import com.silverorder.domain.user.repository.UserJpaRepository;
 import jakarta.persistence.EntityNotFoundException;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+
+import java.util.List;
 
 /**
  * <pre>
@@ -27,20 +32,34 @@ import org.springframework.transaction.annotation.Transactional;
 public class OptionServiceImpl implements OptionService{
     private final OptionRepository optionRepository;
     private final OptionCategoryJpaRepository optionCategoryJpaRepository;
+    private final UserJpaRepository userJpaRepository;
+    //private final StoreJpaRepository storeJpaRepository;
 
 
     /**
-     * 옵션 카테고리 등록
+     * 옵션 카테고리 및 옵션 등록
+     * @param userId : 유저 id
      * @param requestOptionCategoryDto : 옵션 등록 요소
      * @throws Exception
      */
     @Override
     @Transactional
-    public void saveOptionCategory(RequestOptionCategoryDto requestOptionCategoryDto) throws Exception {
+    public void saveOptionCategory(long userId, RequestOptionCategoryDto requestOptionCategoryDto) throws Exception {
         //유저 확인 로직
+        User user = userJpaRepository.findById(userId)
+                .orElseThrow(() -> new EntityNotFoundException("유저를 찾을 수 없습니다."));
+        if(user.getUserRole() != UserRole.ROLE_ADMIN)
+            throw new Exception("관리자 유저가 아닙니다.");
 
         //가게 확인 로직
         Store store = null;
+        /*
+        Store store = storeJpaRepository.findById(reuqestOptionCateory.getStoreId())
+            .orElseThrow(() -> new EntityNotFoundException("가맹점을 찾을 수 없습니다."));
+        if(!store.getUser().equals(user))
+            throw new Exception("가맹점주가 아닙니다.");
+        */
+
 
         //카테고리 등록 및 리턴
         OptionCategory optionCategory = optionRepository.saveOptionCategory(store,
@@ -48,47 +67,118 @@ public class OptionServiceImpl implements OptionService{
                 requestOptionCategoryDto.getOptionType());
         log.info("return optionCategoryId : {}", optionCategory.getId());
 
-        //옵션 카테고리 요청 내 옵션리스트 확인
-        RequestOptionDto requestOptionDto =
-                requestOptionCategoryDto.getRequestOptionDto();
-
         // 옵션목록 존재 시
-        if(requestOptionDto.getOptionDtoList() != null
-                && !requestOptionDto.getOptionDtoList().isEmpty()) {
-            for (OptionDto options : requestOptionDto.getOptionDtoList()) {
-                //옵션리스트 등록
-                optionRepository.saveOption(optionCategory, options);
-            }
+        if(requestOptionCategoryDto.getOptionDtoList() != null
+                && !requestOptionCategoryDto.getOptionDtoList().isEmpty()) {
+            // 옵션 등록
+            optionRepository.saveOption(optionCategory, requestOptionCategoryDto.getOptionDtoList());
         }
 
     }
 
+
+    /**
+     * 옵션 카테고리 및 옵션 수정
+     * @param userId : 유저 id
+     * @param optionCategoryId : 옵션 카테고리 id
+     * @param requestOptionCategoryDto : 옵션 등록 요소
+     * @throws Exception
+     */
     @Override
     @Transactional
-    public void modifyOptionCategory(long optionCategoryId, RequestOptionCategoryDto requestOptionCategoryDto) throws Exception {
+    public void modifyOptionCategory(long userId, long optionCategoryId, RequestOptionCategoryDto requestOptionCategoryDto) throws Exception {
         //유저 확인 로직
-
+        User user = userJpaRepository.findById(userId)
+                .orElseThrow(() -> new EntityNotFoundException("유저를 찾을 수 없습니다."));
+        if(user.getUserRole() != UserRole.ROLE_ADMIN)
+            throw new Exception("관리자 유저가 아닙니다.");
         //가게 확인 로직
-
+        /*
+        Store store = storeJpaRepository.findById(reuqestOptionCateory.getStoreId())
+            .orElseThrow(() -> new EntityNotFoundException("가맹점을 찾을 수 없습니다."));
+        if(!store.getUser().equals(user))
+            throw new Exception("가맹점주가 아닙니다.");
+        */
         //옵션 카테고리 확인 로직
         OptionCategory optionCategory = optionCategoryJpaRepository.findById(optionCategoryId)
                 .orElseThrow(() -> new EntityNotFoundException("해당 옵션 카테고리를 찾을 수 없습니다."));
 
+        //옵션 삭제 및 옵션 카테고리 수정
         optionRepository.modifyOptionCategory(optionCategory,
                 requestOptionCategoryDto.getOptionCategoryTitle(),
                 requestOptionCategoryDto.getOptionType());
 
-        //옵션 카테고리 요청 내 옵션리스트 확인
-        RequestOptionDto requestOptionDto =
-                requestOptionCategoryDto.getRequestOptionDto();
-
         // 옵션목록 존재 시
-        if(requestOptionDto.getOptionDtoList() != null
-                && !requestOptionDto.getOptionDtoList().isEmpty()) {
-            for (OptionDto options : requestOptionDto.getOptionDtoList()) {
-                //옵션리스트 등록
-                optionRepository.saveOption(optionCategory, options);
-            }
+        if(requestOptionCategoryDto.getOptionDtoList() != null
+                && !requestOptionCategoryDto.getOptionDtoList().isEmpty()) {
+            // 옵션 등록
+            optionRepository.saveOption(optionCategory, requestOptionCategoryDto.getOptionDtoList());
         }
+    }
+
+    @Override
+    public void deleteOptionCategory(long userId, long optionCategoryId) throws Exception {
+        //유저 확인 로직
+        User user = userJpaRepository.findById(userId)
+                .orElseThrow(() -> new EntityNotFoundException("유저를 찾을 수 없습니다."));
+        if(user.getUserRole() != UserRole.ROLE_ADMIN)
+            throw new Exception("관리자 유저가 아닙니다.");
+        //가게 확인 로직
+        /*
+        Store store = storeJpaRepository.findById(reuqestOptionCateory.getStoreId())
+            .orElseThrow(() -> new EntityNotFoundException("가맹점을 찾을 수 없습니다."));
+        if(!store.getUser().equals(user))
+            throw new Exception("가맹점주가 아닙니다.");
+        */
+        //옵션 카테고리 확인 로직
+        OptionCategory optionCategory = optionCategoryJpaRepository.findById(optionCategoryId)
+                .orElseThrow(() -> new EntityNotFoundException("해당 옵션 카테고리를 찾을 수 없습니다."));
+
+        //옵션 삭제 및 옵션 카테고리 수정
+        /*optionRepository.modifyOptionCategory(optionCategory,
+                requestOptionCategoryDto.getOptionCategoryTitle(),
+                requestOptionCategoryDto.getOptionType());*/
+    }
+
+    /**
+     * 옵션 카테고리 리스트 조회
+     * @param storeId : 가맹점 id
+     * @throws Exception
+     */
+    @Override
+    public List<ResponseOptionDto> listOptionCategory(long storeId) {
+        // 가게 확인 로직
+        Store store = null;
+        /*
+        Store store = storeJpaRepository.findById(storeId)
+            .orElseThrow(() -> new EntityNotFoundException("가맹점을 찾을 수 없습니다."));
+        */
+        List<ResponseOptionDto> responseOptionDtoList =
+                optionRepository.listOptionCategory(store);
+
+        return responseOptionDtoList;
+    }
+
+    /**
+     * 옵션 카테고리 상세 조회
+     * @param optionCategoryId : 옵션 카테고리 id
+     * @throws Exception
+     */
+    @Override
+    public ResponseOptionDto detailOptionCategory(long optionCategoryId) throws Exception {
+        // 카테고리 확인 로직
+        OptionCategory optionCategory = optionCategoryJpaRepository
+                .findById(optionCategoryId)
+                .orElseThrow(() -> new EntityNotFoundException("해당 옵션 카테고리를 찾을 수 없습니다."));
+
+        ResponseOptionDto responseOptionDto = new ResponseOptionDto(
+                optionCategory.getId(),
+                optionCategory.getOptionCategoryTitle(),
+                optionCategory.getOptionType(),
+                null
+        );
+
+        responseOptionDto.setOptionDtoList(optionRepository.detailOptionCategory(optionCategory));
+        return responseOptionDto;
     }
 }
