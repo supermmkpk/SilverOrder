@@ -30,6 +30,7 @@ public class LoginResponseDto extends UserDto {
         super(userDto.getUserId(),
                 userDto.getUserEmail(),
                 userDto.getUserPassword(),
+                userDto.getUserBirth(),
                 userDto.getUserRole(),
                 userDto.getUserJoinDate(),
                 userDto.getUserUpdateDate());

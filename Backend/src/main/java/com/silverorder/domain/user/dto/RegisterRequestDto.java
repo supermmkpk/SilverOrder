@@ -7,6 +7,7 @@ import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
 import lombok.*;
 
+import java.time.LocalDate;
 import java.time.LocalDateTime;
 
 /**
@@ -37,6 +38,13 @@ public class RegisterRequestDto {
     private String userPassword;
 
     /**
+     * 유저 생년월일
+     **/
+    @NotNull
+    @NotBlank(message = "생년월일은 필수입니다.")
+    private LocalDate userBirth;
+
+    /**
      * 유저정보 역할(일반/관리자)
      **/
     @Schema(hidden = true)
@@ -65,6 +73,7 @@ public class RegisterRequestDto {
                 .id(null)
                 .userEmail(this.userEmail)
                 .userPassword(this.userPassword)
+                .userBirth(this.userBirth)
                 .userJoinDate(this.userJoinDate)
                 .userRole(this.userRole)
                 .userUpdateDate(this.userUpdateDate)

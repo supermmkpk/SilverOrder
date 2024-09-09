@@ -43,6 +43,7 @@ public class UserRepositoryImpl implements UserRepository {
                         user.id,
                         user.userEmail,
                         user.userPassword,
+                        user.userBirth,
                         user.userRole,
                         user.userJoinDate,
                         user.userUpdateDate
@@ -66,6 +67,7 @@ public class UserRepositoryImpl implements UserRepository {
                         user.id,
                         user.userEmail,
                         user.userPassword,
+                        user.userBirth,
                         user.userRole,
                         user.userJoinDate,
                         user.userUpdateDate

@@ -7,6 +7,7 @@ import lombok.*;
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
 
+import java.time.LocalDate;
 import java.time.LocalDateTime;
 
 
@@ -37,6 +38,10 @@ public class User {
     @Column(name = "USER_PW", length = 200, nullable = false)
     @NotNull
     private String userPassword;
+
+    @Column(name = "USER_BIRTH", nullable = false)
+    @NotNull
+    private LocalDate userBirth;
 
     @Column(name = "USER_ROLE", nullable = false)
     @NotNull

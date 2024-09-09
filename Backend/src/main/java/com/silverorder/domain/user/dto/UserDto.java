@@ -11,6 +11,7 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+import java.time.LocalDate;
 import java.time.LocalDateTime;
 
 /**
@@ -34,6 +35,8 @@ public class UserDto {
 
     private String userPassword;
 
+    private LocalDate userBirth;
+
     private UserRole userRole;
 
     private LocalDateTime userJoinDate;
@@ -50,8 +53,9 @@ public class UserDto {
                 .id(this.userId)
                 .userEmail(this.userEmail)
                 .userPassword(this.userPassword)
-                .userJoinDate(this.userJoinDate)
+                .userBirth(this.userBirth)
                 .userRole(this.userRole)
+                .userJoinDate(this.userJoinDate)
                 .userUpdateDate(this.userUpdateDate)
                 .build();
     }
