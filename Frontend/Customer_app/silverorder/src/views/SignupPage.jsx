@@ -1,8 +1,11 @@
 import "../styles/SignupPage.css";
 import { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Navigate } from "react-router-dom";
+import useInfoStore from "../stores/infos";
 
 const SignupPage = () => {
+  const { sendRegisterRequest, sendLoginRequest, isLogin } = useInfoStore();
+
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
@@ -10,6 +13,17 @@ const SignupPage = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+
+    // 비밀번호 확인 검증
+    if (password !== confirmPassword) {
+      console.log("비밀번호가 일치하지 않습니다.");
+      return;
+    }
+
+    const success = await sendRegisterRequest(email, password, birthcode);
+    if (success) {
+      sendLoginRequest(email, password);
+    }
   };
 
   const navigate = useNavigate();
@@ -17,6 +31,10 @@ const SignupPage = () => {
   const handleCancel = () => {
     navigate("/");
   };
+
+  if (isLogin) {
+    return <Navigate to="/store" />; // 로그인 상태라면 상점 페이지로 redirect
+  }
 
   return (
     <div className="sign-up-container">
@@ -61,7 +79,7 @@ const SignupPage = () => {
             <input
               id="signup-input04"
               type="text"
-              placeholder="주민번호 앞 6자리"
+              placeholder="0000-00-00"
               value={birthcode}
               onChange={(e) => setBirthcode(e.target.value)}
               required // 해당 필드가 반드시 채워져야 함 (빈 상태로 제출 방지)

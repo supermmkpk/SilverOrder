@@ -1,7 +1,10 @@
 import "./styles/UpsideNavbar.css";
 import { useNavigate } from "react-router-dom";
+import useInfoStore from "../../stores/infos";
 
 const UpsideNavbar = () => {
+  const { logout } = useInfoStore();
+
   const navigate = useNavigate();
 
   const handleback = () => {
@@ -10,6 +13,10 @@ const UpsideNavbar = () => {
 
   const go_to_orderstate = () => {
     navigate("/orderstate");
+  };
+
+  const handleLogout = () => {
+    logout(navigate); // navigate를 전달
   };
 
   return (
@@ -21,6 +28,9 @@ const UpsideNavbar = () => {
           src="/left_arrow.png"
           alt="뒤로가기"
         />
+      </div>
+      <div className="upnav-logout" onClick={handleLogout}>
+        <p>로그아웃</p>
       </div>
       <div className="upnav-rightside">
         <img
