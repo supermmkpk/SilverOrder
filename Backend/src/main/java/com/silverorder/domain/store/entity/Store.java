@@ -21,8 +21,7 @@ public class Store {
     private Long id;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "USER_ID", nullable = false)
-    @NotNull
+    @JoinColumn(name = "USER_ID", nullable = true)
     private User user;
 
     @Column(name = "STORE_NAME", length = 30, nullable = false)

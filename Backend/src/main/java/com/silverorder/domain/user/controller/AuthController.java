@@ -59,15 +59,15 @@ public class AuthController {
     /**
      * 관리자 회원가입
      *
-     * @param requestDto 회원가입 요청 DTO
+     * @param adminRequestDto 회원가입 요청 DTO
      * @return ResponseEntity
      */
-    @Operation(summary = "관리자 회원가입", description = "관리자 회원 정보를 DB에 영속화합니다.")
+    @Operation(summary = "관리자 회원가입", description = "관리자 회원 정보를 저장하며, 가맹점 번호에 해당하는 매장을 해당 회원과 연결합니다.")
     @ResponseStatus(HttpStatus.CREATED)
     @PostMapping("/register/admin")
-    public ResponseEntity<?> registerAdminUser(@RequestBody @Valid RegisterRequestDto requestDto) throws Exception {
-        requestDto.setUserRole(UserRole.ROLE_ADMIN);
-        userService.register(requestDto);
+    public ResponseEntity<?> registerAdminUser(@RequestBody @Valid AdminRegisterRequestDto adminRequestDto) throws Exception {
+        adminRequestDto.setUserRole(UserRole.ROLE_ADMIN);
+        userService.registerAdmin(adminRequestDto);
         return new ResponseEntity<>("관리자 회원가입 성공", HttpStatus.CREATED);
     }
 
