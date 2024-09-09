@@ -7,6 +7,7 @@ import com.silverorder.domain.user.repository.UserRepository;
 import com.silverorder.global.config.security.JwtUtil;
 import com.silverorder.global.exception.CustomException;
 import com.silverorder.global.exception.ErrorCode;
+import jakarta.persistence.PersistenceException;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.modelmapper.ModelMapper;
@@ -109,6 +110,25 @@ public class UserServiceImpl implements UserService {
     @Override
     public void deleteUser(Long userId) throws Exception {
         userRepository.deleteUser(userId);
+    }
+
+    @Transactional
+    @Override
+    public void registerAdmin(AdminRegisterRequestDto adminRegisterRequestDto) throws Exception {
+        // 이메일 중복 체크
+        if (userRepository.findByUserEmail(adminRegisterRequestDto.getUserEmail()) != null) {
+            throw new CustomException(ErrorCode.DUPLICATE_USEREMAIL);
+        }
+
+        //비밀번호 암호화
+        String password = adminRegisterRequestDto.getUserPassword();
+        adminRegisterRequestDto.setUserPassword(passwordEncoder.encode(password));
+
+        // Entity 객체 변환
+        User user = adminRegisterRequestDto.toEntity();
+
+        //영속화
+        userRepository.addAdminWithStoreId(user, adminRegisterRequestDto.getStoreId());
     }
 
 }
