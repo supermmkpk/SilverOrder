@@ -13,7 +13,7 @@
     height: 100vh;
   }
   
-  .signup-container {
+  .signup-container form {
     display: flex;
     flex-direction: column;
     justify-content: center;

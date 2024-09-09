@@ -2,7 +2,10 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import './Navbar.css';
 import NavLogo from '../../logo/NavLogo.png';
+import useInfoStore from "../../stores/infos.js";
+
 const Navbar = () => {
+  const { logout } = useInfoStore();
   return (
     <nav className="navbar">
       <div className="navbar-left">
@@ -21,7 +24,7 @@ const Navbar = () => {
         <button className="bell-button">
           <i className="fa fa-bell" aria-hidden="true"></i>
         </button>
-        <button className="logout-button">LOGOUT</button>
+        <button className="logout-button" onClick={logout}>LOGOUT</button>
       </div>
     </nav>
   );

@@ -1,5 +1,5 @@
 import { Route, Routes, Navigate } from "react-router-dom";
-
+import useInfoStore from "../stores/infos";
 
 // 로그인 페이지
 import LoginPage from "../views/LoginPage.jsx";
@@ -12,6 +12,7 @@ import OrderPage from "../views/OrderPage.jsx";
 
 const PageRoutes = () => {
 
+    const { isLogin } = useInfoStore();
 
     return (
         <Routes>
@@ -19,9 +20,20 @@ const PageRoutes = () => {
             <Route path="/login" element={<LoginPage />} />
             {/* 회원가입 */}
             <Route path="/signup" element={<Signup />} />
-            {/* 주문 페이지 */}
-            <Route path="/order" element={<OrderPage />} />
 
+            {/* 로그인 상태 확인 및 리다이렉트 */}
+            {!isLogin && (
+                <>
+                    <Route path="*" element={<Navigate to="/login" />} />
+                </>
+            )}
+
+            {isLogin && (
+                <>
+                    {/* 주문 페이지 */}
+                    <Route path="/order" element={<OrderPage />} />
+                </>
+            )}
         </Routes>
     )
 }
