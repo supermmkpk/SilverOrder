@@ -19,6 +19,12 @@
   cursor: pointer;
 }
 
+.upnav-logout p {
+  font-size: calc(25 / 1440 * 100vw);
+  font-weight: bold;
+  cursor: pointer;
+}
+
 .upnav-rightside {
   display: flex;
   margin-right: calc(15 / 1440 * 100vw);

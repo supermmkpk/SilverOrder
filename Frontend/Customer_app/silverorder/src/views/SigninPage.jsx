@@ -1,13 +1,28 @@
 import "../styles/SigninPage.css";
 import { useState } from "react";
+import useInfoStore from "../stores/infos";
+import { Navigate } from "react-router-dom";
 
 const SigninPage = () => {
+  const { sendLoginRequest, isLogin } = useInfoStore();
+
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+
+    const success = await sendLoginRequest(email, password);
+    if (success) {
+      console.log("로그인 성공");
+    } else {
+      console.log("로그인 실패");
+    }
   };
+
+  if (isLogin) {
+    return <Navigate to="/store" />; // 로그인 상태라면 상점 페이지로 redirect
+  }
 
   return (
     <div className="sign-in-container">
