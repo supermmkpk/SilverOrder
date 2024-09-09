@@ -4,12 +4,14 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.util.List;
+
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
 public class RequestOptionCategoryDto {
-    private long storeId;
+    private Long storeId;
     private String optionCategoryTitle;
-    private int optionType;
-    private RequestOptionDto requestOptionDto;
+    private OptionType optionType;
+    private List<OptionDto> optionDtoList;
 }
