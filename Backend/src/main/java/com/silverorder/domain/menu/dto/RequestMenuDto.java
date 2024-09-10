@@ -8,8 +8,8 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 public class RequestMenuDto {
-    private long menuId;
-    private long menuCategoryId;
+    private Long storeId;
+    private Long menuCategoryId;
     private String menuName;
     private String simpleName;
     private String menuDesc;
