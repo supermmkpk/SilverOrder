@@ -70,7 +70,7 @@ public class OptionController {
     }
 
     @Operation(summary = "옵션 카테고리 리스트 조회", description="가게에서 사용하는 옵션 카테고리들을 조회합니다.")
-    @GetMapping("/category/{optionCategoryId}")
+    @GetMapping("/category/{storeId}")
     public ResponseEntity<?> listOptionCategory (
             @PathVariable Long storeId,
             @AuthenticationPrincipal CustomUserDetails userDetails
