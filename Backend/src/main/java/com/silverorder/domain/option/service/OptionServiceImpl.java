@@ -7,6 +7,7 @@ import com.silverorder.domain.option.entity.OptionCategory;
 import com.silverorder.domain.option.repository.OptionCategoryJpaRepository;
 import com.silverorder.domain.option.repository.OptionRepository;
 import com.silverorder.domain.store.entity.Store;
+import com.silverorder.domain.store.repository.StoreJpaRepository;
 import com.silverorder.domain.user.dto.UserRole;
 import com.silverorder.domain.user.entity.User;
 import com.silverorder.domain.user.repository.UserJpaRepository;
@@ -33,7 +34,7 @@ public class OptionServiceImpl implements OptionService{
     private final OptionRepository optionRepository;
     private final OptionCategoryJpaRepository optionCategoryJpaRepository;
     private final UserJpaRepository userJpaRepository;
-    //private final StoreJpaRepository storeJpaRepository;
+    private final StoreJpaRepository storeJpaRepository;
 
 
     /**
@@ -51,14 +52,10 @@ public class OptionServiceImpl implements OptionService{
         if(user.getUserRole() != UserRole.ROLE_ADMIN)
             throw new Exception("관리자 유저가 아닙니다.");
 
-        //가게 확인 로직
-        Store store = null;
-        /*
-        Store store = storeJpaRepository.findById(reuqestOptionCateory.getStoreId())
+        Store store = storeJpaRepository.findById(requestOptionCategoryDto.getStoreId())
             .orElseThrow(() -> new EntityNotFoundException("가맹점을 찾을 수 없습니다."));
         if(!store.getUser().equals(user))
             throw new Exception("가맹점주가 아닙니다.");
-        */
 
 
         //카테고리 등록 및 리턴
@@ -93,12 +90,11 @@ public class OptionServiceImpl implements OptionService{
         if(user.getUserRole() != UserRole.ROLE_ADMIN)
             throw new Exception("관리자 유저가 아닙니다.");
         //가게 확인 로직
-        /*
-        Store store = storeJpaRepository.findById(reuqestOptionCateory.getStoreId())
+        Store store = storeJpaRepository.findById(requestOptionCategoryDto.getStoreId())
             .orElseThrow(() -> new EntityNotFoundException("가맹점을 찾을 수 없습니다."));
         if(!store.getUser().equals(user))
             throw new Exception("가맹점주가 아닙니다.");
-        */
+
         //옵션 카테고리 확인 로직
         OptionCategory optionCategory = optionCategoryJpaRepository.findById(optionCategoryId)
                 .orElseThrow(() -> new EntityNotFoundException("해당 옵션 카테고리를 찾을 수 없습니다."));
@@ -123,21 +119,19 @@ public class OptionServiceImpl implements OptionService{
                 .orElseThrow(() -> new EntityNotFoundException("유저를 찾을 수 없습니다."));
         if(user.getUserRole() != UserRole.ROLE_ADMIN)
             throw new Exception("관리자 유저가 아닙니다.");
-        //가게 확인 로직
-        /*
-        Store store = storeJpaRepository.findById(reuqestOptionCateory.getStoreId())
-            .orElseThrow(() -> new EntityNotFoundException("가맹점을 찾을 수 없습니다."));
-        if(!store.getUser().equals(user))
-            throw new Exception("가맹점주가 아닙니다.");
-        */
+
         //옵션 카테고리 확인 로직
         OptionCategory optionCategory = optionCategoryJpaRepository.findById(optionCategoryId)
                 .orElseThrow(() -> new EntityNotFoundException("해당 옵션 카테고리를 찾을 수 없습니다."));
 
+        //가게 확인 로직
+        Store store = storeJpaRepository.findById(optionCategory.getStore().getId())
+                .orElseThrow(() -> new EntityNotFoundException("가맹점을 찾을 수 없습니다."));
+        if(!store.getUser().equals(user))
+            throw new Exception("가맹점주가 아닙니다.");
+
         //옵션 삭제 및 옵션 카테고리 수정
-        /*optionRepository.modifyOptionCategory(optionCategory,
-                requestOptionCategoryDto.getOptionCategoryTitle(),
-                requestOptionCategoryDto.getOptionType());*/
+        optionRepository.deleteOptionCategory(optionCategory);
     }
 
     /**
@@ -148,15 +142,10 @@ public class OptionServiceImpl implements OptionService{
     @Override
     public List<ResponseOptionDto> listOptionCategory(long storeId) {
         // 가게 확인 로직
-        Store store = null;
-        /*
         Store store = storeJpaRepository.findById(storeId)
             .orElseThrow(() -> new EntityNotFoundException("가맹점을 찾을 수 없습니다."));
-        */
-        List<ResponseOptionDto> responseOptionDtoList =
-                optionRepository.listOptionCategory(store);
 
-        return responseOptionDtoList;
+        return optionRepository.listOptionCategory(store);
     }
 
     /**
