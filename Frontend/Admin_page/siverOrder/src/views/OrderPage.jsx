@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import Navbar from '../components/Navbar/Navbar'
+import Navbar from '../components/Navbar/Navbar';
 import OrderTabs from '../components/Order/OrderTabs';
 import OrderList from '../components/Order/OrderList';
 import OrderDetail from '../components/Order/OrderDetail';

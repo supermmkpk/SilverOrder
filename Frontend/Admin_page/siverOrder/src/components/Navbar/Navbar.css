@@ -1,5 +1,5 @@
 /* 전체 네비게이션 바 설정 */
-.navbar {
+.navbar-s {
   position: fixed;
   top: 0;
   left: 0;
@@ -40,7 +40,7 @@
     gap: 20px; /* 링크 사이 간격 */
   }
   
-  .nav-link {
+  .nav-link-s {
     color: white;
     text-decoration: none;
     font-size: 18px;
