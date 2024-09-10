@@ -135,9 +135,7 @@ public class OptionServiceImpl implements OptionService{
                 .orElseThrow(() -> new EntityNotFoundException("해당 옵션 카테고리를 찾을 수 없습니다."));
 
         //옵션 삭제 및 옵션 카테고리 수정
-        /*optionRepository.modifyOptionCategory(optionCategory,
-                requestOptionCategoryDto.getOptionCategoryTitle(),
-                requestOptionCategoryDto.getOptionType());*/
+        optionRepository.deleteOptionCategory(optionCategory);
     }
 
     /**
