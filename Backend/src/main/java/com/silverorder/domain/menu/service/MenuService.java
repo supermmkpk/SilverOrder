@@ -1,17 +1,3 @@
-package com.silverorder.domain.menu.service;
-
-import com.silverorder.domain.menu.dto.RequestMenuCategoryDto;
-import com.silverorder.domain.menu.dto.RequestMenuDto;
-
-/**
- * <pre>
- *      메뉴 관리 서비스 인터페이스
- * </pre>
- * @author 노명환
- * @since JDK17
- */
-public interface MenuService {
-    void saveMenu(RequestMenuDto requestMenuDto) throws Exception;
-
-    void saveMenuCategory(RequestMenuCategoryDto requestMenuCategoryDto) throws Exception;
-}
+version https://git-lfs.github.com/spec/v1
+oid sha256:ff6fdc5acb7d0935776f6f36efdb4a90136a94a762b64a7c5b8386c65b7c6933
+size 933
