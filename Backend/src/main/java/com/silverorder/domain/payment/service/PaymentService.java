@@ -1,15 +1,3 @@
-package com.silverorder.domain.payment.service;
-
-import com.silverorder.global.dto.HeaderApiDto;
-import com.silverorder.global.dto.HeaderDto;
-
-/**
- * <pre>
- *      결제 관리 서비스 인터페이스
- * </pre>
- * @author 노명환
- * @since JDK17
- */
-public interface PaymentService {
-    HeaderDto testingHeader(long userId) throws Exception;
-}
+version https://git-lfs.github.com/spec/v1
+oid sha256:e35125b7ee68ea87dd37ea3daac1680343c641e7ae49ca0f2e4d1d51e17e885b
+size 679
