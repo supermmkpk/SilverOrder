@@ -1,3 +1,7 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:37a92cf05eedd3d2300df1db5f7a516440e25546ae17b2f83f4ebdbca4ac8e94
-size 725
+.order {
+    height: 100%;
+}
+
+.container-fluid {
+    height: 100% !important;
+}
