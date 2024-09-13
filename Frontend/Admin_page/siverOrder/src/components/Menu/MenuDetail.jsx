@@ -1,14 +1,3 @@
-import React from 'react';
-import './MenuDetail.css';
-
-const MenuDetail = ({ menu }) => {
-  return (
-    <div>
-      <h2>{menu.name}</h2>
-      <img src={menu.image} alt={menu.name} />
-      <p>{menu.description}</p>
-    </div>
-  );
-};
-
-export default MenuDetail;
+version https://git-lfs.github.com/spec/v1
+oid sha256:4001a89b4165518877e49173614f247a3527cfc605bb9e6e7e2955e54c93b1a8
+size 1217
