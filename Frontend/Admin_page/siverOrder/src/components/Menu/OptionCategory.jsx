@@ -1,18 +1,3 @@
-import React from 'react';
-import './Category.css';
-
-const OptionCategory = ({ onCancel, onSubmit }) => {
-  return (
-    <div className="option-category">
-      <h2>옵션</h2>
-      <label>카테고리 이름</label>
-      <input type="text" />
-      <div className="action-buttons">
-        <button className="cancel" onClick={onCancel}>취소</button>
-        <button className="submit" onClick={onSubmit}>추가</button>
-      </div>
-    </div>
-  );
-};
-
-export default OptionCategory;
+version https://git-lfs.github.com/spec/v1
+oid sha256:4a94d1cbf44dc47cc1a5ad37e096d679c221239c19a012d6506276f1ec5de3a1
+size 3464
