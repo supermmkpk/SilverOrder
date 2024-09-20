@@ -1,17 +1,3 @@
-import "../styles/MycardPage.css";
-
-const MycardPage = () => {
-  return (
-    <div className="mycard-container">
-      <div className="mycard-title">
-        <h1>내 카드 목록</h1>
-      </div>
-
-      <div className="mycard-addcard">
-        <img src="/add_card.png" alt="새 카드 추가" />
-      </div>
-    </div>
-  );
-};
-
-export default MycardPage;
+version https://git-lfs.github.com/spec/v1
+oid sha256:9dc20979b09328f6dae9c85f16eb97293041aafaad7f116486682a42f6626b79
+size 1538
