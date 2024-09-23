@@ -1,18 +1,3 @@
-import React from 'react';
-import './Category.css';
-
-const MenuCategory = ({ onCancel, onSubmit }) => {
-  return (
-    <div className="menu-category">
-      <h2>메뉴</h2>
-      <label>카테고리 이름</label>
-      <input type="text" />
-      <div className="action-buttons">
-        <button className="cancel" onClick={onCancel}>취소</button>
-        <button className="submit" onClick={onSubmit}>추가</button>
-      </div>
-    </div>
-  );
-};
-
-export default MenuCategory;
+version https://git-lfs.github.com/spec/v1
+oid sha256:150bb8c70c0db5a9f21d1cfe69be0740f140e6e812e739296ca4274c03786a96
+size 1867
