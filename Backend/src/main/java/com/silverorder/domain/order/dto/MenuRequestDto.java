@@ -1,18 +1,3 @@
-package com.silverorder.domain.order.dto;
-
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
-
-import java.util.List;
-
-@AllArgsConstructor
-@NoArgsConstructor
-@Getter
-@Setter
-public class MenuRequestDto {
-    private Long menuId;
-    private int menuAmount;
-    private List<OptionRequestDto> optionList;
-}
+version https://git-lfs.github.com/spec/v1
+oid sha256:a1ea6d803ea98d57d2f964b4d76e46707a86000bd01d671c477f147663a2600a
+size 816
