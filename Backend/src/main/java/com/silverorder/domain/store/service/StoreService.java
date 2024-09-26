@@ -1,12 +1,3 @@
-package com.silverorder.domain.store.service;
-
-import com.silverorder.domain.store.dto.ResponseLatitudeLongitudeDTO;
-
-/**
- * 스토어 관련 서비스
- * @author 채기훈
- * @since JDK17 Eclipse Temurin
- */
-public interface StoreService {
-    ResponseLatitudeLongitudeDTO getStoreLocate(ResponseLatitudeLongitudeDTO request);
-}
+version https://git-lfs.github.com/spec/v1
+oid sha256:63671216b992ba626af73b8176d6046b3831b52368846e029544c75f7fe941d2
+size 830
