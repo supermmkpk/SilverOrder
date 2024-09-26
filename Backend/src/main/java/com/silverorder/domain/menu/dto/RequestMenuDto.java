@@ -1,3 +1,21 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:1c649df3b4dbf953051a23139f68303839ef4c6b958a0f99c0163c1bdcb3d224
-size 1722
+package com.silverorder.domain.menu.dto;
+
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
+@Data
+@AllArgsConstructor
+@NoArgsConstructor
+public class RequestMenuDto {
+    private Long storeId;
+    private Long menuCategoryId;
+    private String menuName;
+    private String simpleName;
+    private String menuDesc;
+    private MenuStatus menuStatus;
+    private int menuPrice;
+    private int recommend;
+    private String MenuThumb;
+    private long[] useOptionCategory;
+}
