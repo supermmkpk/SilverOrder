@@ -1,0 +1,13 @@
+{
+  "type": "service_account",
+  "project_id": "silver-order",
+  "private_key_id": "8bf9ace6e13d7de8c874176058f5002fd3933eac",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvQIBADANBgkqhkiG9w0BAQEFAASCBKcwggSjAgEAAoIBAQDwP5QGLjXv8K2X\nejfUxVA+a7oQEOCL1KiRA3HV+Zj3jOULGcw2M3C3S+t1MB+Wqk/hHf6GBX805uAD\nZYIRejL2wSbH65oswO0U5mGAYtk6WI7JQvkDu25LFBZA/bTp+YyOYoxNcVuAzgnu\nS9HEg3n1kE71AyGBJZOw6na2JPO2Kg9+3oeDQ9AMyfeRmCzNaBIxr5p45yvPHyY9\nIOipWv49RcYFI7j/yPeZo5lNHcog7QLRH+WRrXlFgl0Ye1bznhZsj/6ItC1BdkPH\n7WwoNm5koNIDEpdI/yL7kqdk9Bm+bMHapIQWEitlm2VjrwIfix4hAMiqGaRq6lY2\ndcjIbXTpAgMBAAECggEAUPIK7J4rPCGKS2w5XW3xoGZpdTpKfbJz7RANDbwgBuAo\n17mkbWqdgpSIy54gNoJBkaaqd/toJanYNizASyUyAKOJbnh6JLQH7S/GEBy99gOa\ncEMpZVGEUrV83f7dMqwK6HpZrUoRO2+wNuLC1YQ61jr9711Tr5C6lzQYNTx0BJ62\nIWFQtVfRMi5BOxcu6nba5+V+v3OcZLQhBN2+LJ5fRKSoZL3poCtHqTcuRjUcYoSO\npfbyOhJ+JZj5iyLvYDkLFXxcrtPoBrmsONfvU1DsSeyZEOOd1wc7/Q6z7hRl0bw+\n/mU4mx0GMYL0MP8cHWdleq6Ik2fD8kzz4lfJvfachQKBgQD7sQcHufPDhBPrdwO7\n9VUdZf641CEJ16S+5L8fjKnXbzfdJnXmzidtXfnDWIywGqgqDq39l9wuJGOzxe2/\nl6ftRE80k3Edunul2yoFb/MOKY67TBDf/mKAPZYUJkNFKkhQofsWAZQ3y6OjC4qR\npSlm7xlZso7WuT0OdpT1iTv5KwKBgQD0XGdx+3X6K29MQl1TCnCMNkRYdM6HPtTH\nlZxnG0Vvn+aYVeSqn6ruzW68syabWzRzimra3/GXRo3pp41pUaNpwz5pBWe1wAX6\ns/y64xBtH+tpjsHTjKMR7BA/8mOSP+zUnjtHSKIP9A+BpvPiPajhAy5uHw+jyDpN\nunq3+z0YOwKBgBQyaXkCQABheeO8Qi10C2d3htA4HYqXpl23J2sVs49ZGmeBrZZe\n1qUdFGzLj0aWbQYq9WVTKVT+kI2dhW2Jcu1EPQLgDgSvsTpm8uFK0XtCdHStLvF6\njVbzGjb1txI2yWTHCsoCSG2NxszPoUf8s+zRpPwgqvuqE680btGhOJHPAoGAEM4G\nAy2y6FhyWAE8X8iZAtt8icTGq0Bj67HbRq/2b33EovdNOXqvi6qvEeUUI5z7F3MO\ndCzwdWHRwp7WN8b4gP5/XUOU5UfmYV5dZBDXgVmvm9vIcp76W/IrD+rAdD9XLywO\nkZFqK8SyCE2N+iIZahgI6mPSdIYBlHTdmad6hR8CgYEAsHId7JBGrh4lXSck1C/t\nSr7ivzXAiSg6HdOpSrxUeeq3Il4KI2UONVKU3DPuTexCC6PR+ZEyAaMF8A6tEsbG\na0S8zFAvXIirAOfYUT3q2XBRUarEAmt0u/FTcB+ke+0GHnWP0Lw82nBivpPevosa\nOIQk1Eom5jxnEQQIjOcwQgs=\n-----END PRIVATE KEY-----\n",
+  "client_email": "silverorder-storage-access@silver-order.iam.gserviceaccount.com",
+  "client_id": "113297492766819462109",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://oauth2.googleapis.com/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/silverorder-storage-access%40silver-order.iam.gserviceaccount.com",
+  "universe_domain": "googleapis.com"
+}
