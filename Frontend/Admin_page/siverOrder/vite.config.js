@@ -1,11 +1,3 @@
-import { defineConfig } from 'vite'
-import react from '@vitejs/plugin-react'
-
-export default defineConfig({
-  plugins: [react()],
-  base: '/silverorder/admin/', // 이 부분이 중요
-  build: {
-    outDir: 'dist',
-    assetsDir: 'assets',
-  },
-})
+version https://git-lfs.github.com/spec/v1
+oid sha256:ff8d66fd9fcc5e7103e2addbffd6ab343bf02e554d4dbbc27e0363496cf5d1c0
+size 817
