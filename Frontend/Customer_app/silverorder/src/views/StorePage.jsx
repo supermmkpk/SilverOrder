@@ -1,19 +1,3 @@
-import "../styles/StorePage.css";
-import MenuList from "../components/MenuCard/MenuList";
-import mike from "../img/mike.png";
-
-const StorePage = () => {
-  return (
-    <div className="main-container">
-      <div className="store-title">
-        <h1>M커피 SSAFY점</h1>
-      </div>
-      <div className="SST-search-btn">
-        <img className="SST-search-img" src={mike} alt="음성인식 버튼" />
-      </div>
-      <MenuList />
-    </div>
-  );
-};
-
-export default StorePage;
+version https://git-lfs.github.com/spec/v1
+oid sha256:b59475029235a3051f6a3d25e3b766ff01e52070a3a9d09d97a2c4a764395bb1
+size 715
