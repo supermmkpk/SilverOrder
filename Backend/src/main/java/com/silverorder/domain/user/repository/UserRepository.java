@@ -1,3 +1,30 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:e3df4e645874ecaf77d361a141f7eb2298a8385a3a0dc3e22f002ac91ac143a9
-size 886
+package com.silverorder.domain.user.repository;
+
+import com.silverorder.domain.user.dto.UserDto;
+import com.silverorder.domain.user.entity.User;
+import jakarta.persistence.PersistenceException;
+
+
+/**
+ * <pre>
+ *     회원 관리 레포지토리 인터페이스
+ * </pre>
+ *
+ * @author 박봉균
+ * @since JDK17 Eclipse Temurin
+ */
+public interface UserRepository {
+    void insertUser(User user) throws PersistenceException;
+
+    UserDto findByUserEmail(String email) throws PersistenceException;
+
+    UserDto findByUserId(Long id) throws PersistenceException;
+
+    void deleteUser(Long userId) throws PersistenceException;
+
+    void addAdminWithStoreId(User user, Long storeId) throws PersistenceException;
+
+    void connectBank(Long userId, String userApiEmail, String userApiKey) throws PersistenceException;
+
+    Long getStoreIdByUserId(Long userId) throws PersistenceException;
+}

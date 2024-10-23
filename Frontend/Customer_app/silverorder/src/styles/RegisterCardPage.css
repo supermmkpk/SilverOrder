@@ -1,3 +1,146 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:ec8e678ffce657b345d39e95d8ed8f3c5e38b4086ac5c456d5d8567caa383204
-size 2414
+.registerCard-container {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.registerCard-container h1 {
+  font-size: 35px;
+  font-weight: bold;
+}
+
+.registerCard-list {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.registerCard-item {
+  width: 90%;
+  height: auto;
+  border: 1px solid #cccccc;
+  border-radius: 10px;
+  /* background-color: red; */
+  margin-bottom: 15px;
+}
+
+.registerCard-item-title p {
+  font-size: 30px;
+  font-weight: bold;
+  margin: 10px;
+}
+
+.registerCard-item-number {
+  font-size: 15px;
+  font-weight: bold;
+  margin: 0;
+}
+
+.registerCard-item-info li {
+  margin-left: 15px;
+  text-align: start;
+  font-size: 15px;
+  word-break: keep-all;
+}
+
+.registerCard-item-checkbox {
+  width: 95%;
+  display: flex;
+  justify-content: end;
+  align-items: center;
+  font-size: 20px;
+  margin-top: 10px;
+}
+
+.registerCard-item-checkbox input {
+  width: 20px;
+  height: 20px;
+}
+
+.registerCard-btns {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.registerCard-clear,
+.registerCard-cancel {
+  width: 300px;
+  height: 40px;
+  margin-bottom: 15px;
+  border: none;
+  border-radius: 10px;
+  font-size: 30px;
+  color: #ffffff;
+  cursor: pointer;
+}
+
+.registerCard-clear {
+  background-color: #1428a0;
+}
+
+.registerCard-cancel {
+  background-color: #666666;
+}
+
+.registerCard-no-card {
+  margin: 0;
+  font-size: 25px;
+  word-break: keep-all; /* 단어가 중간에 잘리는 것 방지 */
+}
+
+@media (max-width: 412px) {
+  .registerCard-container h1 {
+    font-size: 8.5vw;
+  }
+
+  .registerCard-item {
+    border: 0.24vw solid #cccccc;
+    border-radius: 2.43vw;
+    margin-bottom: 3.64vw;
+  }
+
+  .registerCard-item-title p {
+    font-size: 7.28vw;
+    margin: 2.43vw;
+  }
+
+  .registerCard-item-number {
+    font-size: 3.64vw;
+  }
+
+  .registerCard-item-info li {
+    margin-left: 3.64vw;
+    font-size: 3.64vw;
+  }
+
+  .registerCard-item-checkbox {
+    font-size: 4.85vw;
+    margin-top: 2.43vw;
+  }
+
+  .registerCard-item-checkbox input {
+    width: 4.85vw;
+    height: 4.85vw;
+  }
+
+  .registerCard-clear,
+  .registerCard-cancel {
+    width: 72.82vw;
+    height: 9.71vw;
+    margin-bottom: 3.64vw;
+    border-radius: 2.43vw;
+    font-size: 7.28vw;
+  }
+
+  .registerCard-no-card {
+    font-size: 6.07vw;
+  }
+}

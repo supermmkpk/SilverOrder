@@ -1,3 +1,21 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:097ac43efb2f28c1318ccc16c54537b2545d7ee96168139c73227d802e1054af
-size 798
+package com.silverorder.domain.store.repository;
+
+import com.silverorder.domain.store.dto.ResponseProcAgeDto;
+import com.silverorder.domain.store.dto.ProcSalesDto;
+import com.silverorder.domain.store.dto.ProcWeekDto;
+import com.silverorder.domain.store.dto.StoreDto;
+import com.silverorder.domain.store.entity.Store;
+import jakarta.persistence.PersistenceException;
+
+import java.util.List;
+
+public interface StoreRepository {
+    /** 가맹점 매출현황 */
+    ProcSalesDto storeSales(Store store) throws PersistenceException;
+
+    /** 최근 1주일간의 매출 현황 */
+    List<ProcWeekDto> procWeekSales(Store store) throws PersistenceException;
+
+    /** 연령별 메뉴 매출 */
+    List<ResponseProcAgeDto> procAgeSales(Store store, Integer purchaseAge) throws PersistenceException;
+}

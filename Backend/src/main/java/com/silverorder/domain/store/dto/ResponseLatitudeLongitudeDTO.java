@@ -1,3 +1,27 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:d2b7e53162dd152ebcae7eb46a3119eafc6ffeef16c0f3efa99cc8196fa545d0
-size 576
+package com.silverorder.domain.store.dto;
+
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotNull;
+import lombok.Builder;
+import lombok.Getter;
+import lombok.Setter;
+import org.hibernate.validator.constraints.Range;
+
+/**
+ * 위도 경도 등록 응답 DTO
+ * @author 채기훈
+ * @since JDK17 Eclipse Temurin
+ */
+@Getter
+@Setter
+@Builder
+public class ResponseLatitudeLongitudeDTO {
+
+    @NotNull
+    @Range(min = -90, max = 90)
+    private double latitude;
+
+    @NotNull
+    @Range(min = -180, max = 180)
+    private double longitude;
+}

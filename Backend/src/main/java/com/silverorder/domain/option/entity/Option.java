@@ -1,3 +1,36 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:91f845b863531fc613df927479afa3843cbc05e4338bfa6303e419364973b81a
-size 911
+package com.silverorder.domain.option.entity;
+
+import jakarta.persistence.*;
+import jakarta.validation.constraints.NotNull;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+import org.hibernate.annotations.ColumnDefault;
+
+@Entity
+@Getter
+@AllArgsConstructor
+@NoArgsConstructor
+@Table(name="T_OPTION")
+public class Option {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "OPTION_ID",nullable = false)
+    private Long id;
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "OPTION_CATEGORY_ID", nullable = false)
+    @NotNull
+    private OptionCategory optionCategory;
+
+    @Column(name = "OPTION_NAME", length = 50, nullable = false)
+    @NotNull
+    private String optionName;
+
+    @Column(name = "OPTION_PRICE", nullable = false)
+    @ColumnDefault("0")
+    @NotNull
+    private int optionPrice;
+
+}

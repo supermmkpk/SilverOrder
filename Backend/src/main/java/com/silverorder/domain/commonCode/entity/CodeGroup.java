@@ -1,3 +1,33 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:f8b78347674ad1ef2329fb320d761a57d4138515d85ae6278f9561c85c2cde9c
-size 799
+package com.silverorder.domain.commonCode.entity;
+
+import jakarta.persistence.*;
+import jakarta.validation.constraints.NotNull;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+import org.hibernate.annotations.ColumnDefault;
+
+import java.time.LocalDateTime;
+
+@Entity
+@Getter
+@AllArgsConstructor
+@NoArgsConstructor
+@Table(name="T_CODE_GROUP")
+public class CodeGroup {
+    @Id
+    @Column(name = "GROUP_ID",nullable = false)
+    private Long id;
+
+    @Column(name = "GROUP_NAME", length = 50, nullable = false)
+    @NotNull
+    private String groupName;
+
+    @Column(name = "USED_COLUMN", length = 50)
+    private String usedColumn;
+
+    @Column(name = "INSERT_DATE", nullable = false)
+    @NotNull
+    private LocalDateTime insertDate;
+}

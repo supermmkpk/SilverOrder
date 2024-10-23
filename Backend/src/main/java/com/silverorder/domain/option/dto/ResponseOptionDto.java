@@ -1,3 +1,25 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:b524a486234846718f5b1e9fc6ed8e1ff06d0bd6fd5070dcc939fb489b2e8a3c
-size 708
+package com.silverorder.domain.option.dto;
+
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
+import java.util.List;
+
+@Data
+@AllArgsConstructor
+@NoArgsConstructor
+public class ResponseOptionDto {
+    private Long optionCategoryId;
+    private String optionCategoryTitle;
+    private OptionType optionType;
+    private List<OptionDto> optionDtoList;
+
+    public ResponseOptionDto(Long optionCategoryId, String optionCategoryTitle,
+                             OptionType optionType){
+        this.optionCategoryId = optionCategoryId;
+        this.optionCategoryTitle = optionCategoryTitle;
+        this.optionType = optionType;
+        this.optionDtoList = null;
+    }
+}

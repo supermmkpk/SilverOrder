@@ -1,3 +1,52 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:a5a62fefdb1d19b485f31bd1fc819ea16163b194de6c04c331eb3687996171c1
-size 726
+.edit-option-container {
+  padding-top: 90px;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.edit-option-title {
+  text-align: center;
+  font-size: 24px;
+  margin-bottom: 20px;
+}
+
+.form-group {
+  margin-bottom: 20px;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 5px;
+}
+
+.form-group input {
+  width: 100%;
+  padding: 10px;
+  font-size: 16px;
+}
+
+.save-button {
+  padding: 10px 20px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  cursor: pointer;
+  margin-right: 10px; 
+}
+
+.save-button:hover {
+  background-color: #0056b3;
+}
+
+
+.delete-button {
+  padding: 10px 20px;
+  background-color: #dc3545; 
+  color: white;
+  border: none;
+  cursor: pointer;
+}
+
+.delete-button:hover {
+  background-color: #c82333;
+}

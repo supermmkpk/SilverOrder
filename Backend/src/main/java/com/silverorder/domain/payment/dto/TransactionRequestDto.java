@@ -1,3 +1,23 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:c652e094291d2950639e209fd2f2b67ad037500a5d05586166166d098c6882cc
-size 578
+package com.silverorder.domain.payment.dto;
+
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.silverorder.global.dto.HeaderApiDto;
+import com.silverorder.global.dto.HeaderDto;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+
+@Getter
+@Setter
+@AllArgsConstructor
+@NoArgsConstructor
+public class TransactionRequestDto {
+    @JsonProperty("Header")
+    private HeaderApiDto headerApiDto;
+    private String cardNo;
+    private String cvc;
+    private Long merchantId;
+    private Long paymentBalance;
+
+}

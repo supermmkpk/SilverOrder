@@ -1,3 +1,24 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:eace3a32099a646691cce9ae1712a87c40bf13d4ed9bc4616bc5890b91d7961d
-size 570
+package com.silverorder.domain.review.dto;
+
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
+import java.time.LocalDate;
+
+@Data
+@AllArgsConstructor
+@NoArgsConstructor
+public class ResponseMyReviewDto {
+    private Long reviewId;
+    private String content;
+    private int rating;
+    private Long orderId;
+    private Long storeId;
+    private String storeName;
+    private String reviewThumb;
+    private Long commentId;
+    private String commentContent;
+    private LocalDate CreatedDate;
+    private LocalDate modifiedDate;
+}

@@ -1,3 +1,35 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:7e5df87fb330b34fa51330f44fda28a5295e3d7e64dad63050b01e5a891254d1
-size 531
+package com.silverorder.domain.store.dto;
+
+import lombok.*;
+
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@ToString
+@Builder
+public class StoreDto {
+    private Long storeId;
+
+    private String storeName;
+
+    private String storeDesc;
+
+    private String storeCategory;
+
+    private Double storeRate;
+
+    private String storeStatus;
+
+    private String address;
+
+    private Double latitude;
+
+    private Double longitude;
+
+    private String accountNum;
+
+    private String openTime;
+
+    private String closeTime;
+}

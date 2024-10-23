@@ -1,3 +1,47 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:6916da027bf7158204aff58e0cc658e39d2ce7ad2b8380e151bc2e1758f39dd6
-size 1267
+package com.silverorder.global.exception;
+
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+import org.springframework.http.HttpStatus;
+
+import java.time.LocalDateTime;
+import java.util.List;
+
+/**
+ * <pre>
+ *     예외 처리 응답을 위한 커스텀 반응 클래스
+ * </pre>
+ * @author 채기훈
+ * @since JDK17
+ */
+@Getter
+public class ErrorResponse {
+    private final LocalDateTime timestamp = LocalDateTime.now();
+    private HttpStatus errorCodeName;
+    private int errorCode;
+    private String errorMessage;
+    private List<FieldError> validationErrors;
+
+    @Getter
+    @Setter
+    @NoArgsConstructor
+    public static class FieldError{
+        private String field;
+        private String message;
+    }
+
+    public ErrorResponse(ErrorCode errorCode, List<FieldError> validationErrors) {
+        this.errorCode = errorCode.getStatus().value();
+        this.errorCodeName = errorCode.getStatus();
+        this.errorMessage = errorCode.getMessage();
+        this.validationErrors = validationErrors;
+    }
+
+    public ErrorResponse(ErrorCode errorCode) {
+        this.errorCode = errorCode.getStatus().value();
+        this.errorCodeName = errorCode.getStatus();
+        this.errorMessage = errorCode.getMessage();
+    }
+
+}

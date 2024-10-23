@@ -1,3 +1,23 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:2a14ef1b7ab0561c6eff9a66133a10d6458586f36af0da3669e7f56b3e8fed56
-size 678
+package com.silverorder.domain.order.service;
+
+import com.silverorder.global.config.RabbitMQConfig;
+import org.springframework.amqp.core.AmqpTemplate;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+@Service
+public class OrderStatusProducer {
+
+    private final AmqpTemplate amqpTemplate;
+
+    @Autowired
+    public OrderStatusProducer(AmqpTemplate amqpTemplate) {
+        this.amqpTemplate = amqpTemplate;
+    }
+
+    public void sendOrderStatusUpdate(OrderStatusProducer event) {
+        amqpTemplate.convertAndSend(RabbitMQConfig.ORDER_EXCHANGE,
+                RabbitMQConfig.ORDER_ROUTING_KEY, event);
+    }
+
+}

@@ -1,3 +1,87 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:d048c0f05ff5b1014d9f815db0293fd1104c03f66980cddadb6078c4a1b0da5e
-size 1981
+html,
+body,
+#root {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #f0f0f0;
+}
+
+#app-container {
+  width: 100%;
+  max-width: 412px;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background-color: #fff;
+  border: 1px solid #ccc;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  padding-bottom: env(
+    safe-area-inset-bottom
+  ); /* iPhone 등에서 하단 '안전 영역'에 맞춰 패딩 추가 */
+}
+
+.fixed-top {
+  flex-shrink: 0;
+}
+
+.scrollable-content {
+  width: 100%;
+  flex-grow: 1;
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+
+.has-bottom-navbar .scrollable-content {
+  margin-bottom: 80px;
+}
+
+.no-bottom-navbar .scrollable-content {
+  margin-bottom: 0;
+}
+
+.fixed-bottom {
+  flex-shrink: 0;
+  position: fixed; /* 항상 화면 하단에 고정되도록 설정 */
+  bottom: 0;
+  width: 100%;
+  z-index: 1000; /* 다른 요소들보다 앞에 나오도록 z-index 설정 */
+  background-color: #fff;
+  border-top: 1px solid #ccc; /* 상단에 경계선을 추가해 시각적으로 구분 */
+  padding-bottom: env(
+    safe-area-inset-bottom
+  ); /* 하단 '안전 영역'을 위한 패딩 */
+}
+
+/* 크로스 브라우저 스크롤바 숨기기 */
+.scrollable-content {
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none; /* IE 10+ */
+}
+
+.scrollable-content::-webkit-scrollbar {
+  display: none; /* 크롬, 사파리, 엣지 */
+}
+
+/* 반응형 처리를 위해 화면 너비가 412px 이하일 때 */
+@media (max-width: 412px) {
+  #app-container {
+    width: 100%; /* 화면 너비에 맞게 100%로 설정 */
+    height: 100vh; /* 화면 높이에 맞게 100vh로 설정 */
+    padding-bottom: env(
+      safe-area-inset-bottom
+    ); /* 하단 안전 영역에 맞춘 패딩 추가 */
+
+    .has-bottom-navbar .scrollable-content {
+      margin-bottom: 19.42vw;
+    }
+
+    .no-bottom-navbar .scrollable-content {
+      margin-bottom: 0;
+    }
+  }
+}

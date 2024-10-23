@@ -1,3 +1,46 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:553d17aab9f47cedd692f7eb1551153be7e27dfcea747ad83f6c2c3877d72a76
-size 886
+.mypage-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+}
+
+.mypage-container h1 {
+  margin: 0;
+  font-size: 45px;
+  font-weight: bold;
+}
+
+.mypage-box01,
+.mypage-box02,
+.mypage-box03 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 320px;
+  height: 120px;
+  border: 0.5px solid #cccccc;
+  border-radius: 10px;
+  text-align: center;
+  word-break: keep-all; /* 단어가 중간에 잘리는 것 방지 */
+  box-shadow: 5px 5px 5px rgb(89, 89, 89);
+  cursor: pointer;
+}
+
+@media (max-width: 412px) {
+  .mypage-container h1 {
+    font-size: 10.92vw;
+  }
+
+  .mypage-box01,
+  .mypage-box02,
+  .mypage-box03 {
+    width: 77.67vw;
+    height: 29.12vw;
+    border: 0.12vw solid #cccccc;
+    border-radius: 2.43vw;
+    box-shadow: 1.21vw 1.21vw 1.21vw rgb(89, 89, 89);
+  }
+}

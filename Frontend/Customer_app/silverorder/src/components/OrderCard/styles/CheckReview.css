@@ -1,3 +1,167 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:5140de69d22e12c1e162a39e1e66ea315560ee1b517f1b4a51208e2cba02033b
-size 2721
+.review-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5); /* 배경 어둡게 */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.review-container {
+  background: #fff;
+  padding: 20px;
+  border-radius: 8px;
+  width: 350px;
+  max-width: 412px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.review-title {
+  font-size: 30px;
+  font-weight: bold;
+}
+
+.review-image-preview {
+  width: 200px;
+  height: 200px;
+  background: none;
+  border: 1px solid #cccccc;
+  border-radius: 10px;
+  margin-bottom: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.review-image-preview img {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+}
+
+.hidden-file-input {
+  display: none;
+}
+
+.custom-file-upload {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 150px; /* 버튼 너비 */
+  height: 30px; /* 버튼 높이 */
+  padding: 10px;
+  background-color: #1248a0;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  font-size: 25px;
+  text-align: center;
+  cursor: pointer;
+}
+
+.review-star {
+  font-size: 50px;
+  cursor: pointer;
+  color: lightgray;
+}
+
+.review-star.filled {
+  color: gold;
+}
+
+.review-rating {
+  margin-bottom: 10px;
+}
+
+.review-input {
+  width: 300px;
+  height: 100px;
+  font-size: 20px;
+  margin-bottom: 15px;
+}
+
+.review-btns {
+  width: 85%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.review-write-btn,
+.review-cancel-btn {
+  width: 125px;
+  height: 50px;
+  font-size: 20px;
+  font-weight: bold;
+  color: #fff;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+.review-write-btn {
+  background-color: #1428a0;
+}
+
+.review-cancel-btn {
+  background-color: #666666;
+}
+
+@media (max-width: 412px) {
+  .review-container {
+    padding: 4.85vw;
+    border-radius: 1.94vw;
+    width: 84.95vw;
+  }
+
+  .review-title {
+    font-size: 7.28vw;
+  }
+
+  .review-image-preview {
+    width: 48.54vw;
+    height: 48.54vw;
+    border: 0.24vw solid #cccccc;
+    border-radius: 2.43vw;
+    margin-bottom: 2.43vw;
+  }
+
+  .custom-file-upload {
+    width: 36.41vw; /* 버튼 너비 */
+    height: 7.28vw; /* 버튼 높이 */
+    padding: 2.43vw;
+    border-radius: 1.21vw;
+    font-size: 6.07vw;
+  }
+
+  .review-star {
+    font-size: 12.14vw;
+  }
+
+  .review-rating {
+    margin-bottom: 2.43vw;
+  }
+
+  .review-input {
+    width: 72.82vw;
+    height: 24.27vw;
+    font-size: 4.85vw;
+    margin-bottom: 3.64vw;
+  }
+
+  .review-write-btn,
+  .review-cancel-btn {
+    width: 30.34vw;
+    height: 12.14vw;
+    font-size: 4.85vw;
+    border-radius: 2.43vw;
+  }
+}

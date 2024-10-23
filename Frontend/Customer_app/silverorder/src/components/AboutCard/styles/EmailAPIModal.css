@@ -1,3 +1,104 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:f27327639804444694f4fd43f8f40e594fcf945435bf6996dfa586ef19ff1b49
-size 1779
+.emailAPImodal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5); /* 배경 어둡게 */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.emailAPImodal-content {
+  background: #fff;
+  padding: 20px;
+  border-radius: 8px;
+  width: 350px;
+  max-width: 412px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.emailAPImodal-content h2 {
+  font-size: 40px;
+  margin: 15px 0px;
+}
+
+.emailAPImodal-content p {
+  font-size: 18px;
+  word-break: keep-all; /* 단어가 중간에 잘리는 것 방지 */
+  margin: 15px 0px;
+}
+
+.emailAPImodal-content input {
+  width: 280px;
+  height: 50px;
+  font-size: 20px;
+}
+
+.emailAPImodal-btns {
+  width: 80%;
+  margin-top: 20px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.emailAPImodal-checkBtn,
+.emailAPImodal-cancelBtn {
+  width: 75px;
+  height: 40px;
+  font-size: 20px;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+.emailAPImodal-checkBtn {
+  background-color: #1428a0;
+  color: #ffffff;
+}
+
+.emailAPImodal-cancelBtn {
+  background-color: #666666;
+  color: #ffffff;
+}
+
+@media (max-width: 412px) {
+  .emailAPImodal-content {
+    padding: 4.85vw;
+    border-radius: 1.94vw;
+    width: 84.95vw;
+  }
+
+  .emailAPImodal-content h2 {
+    font-size: 9.71vw;
+    margin: 3.64vw 0vw;
+  }
+
+  .emailAPImodal-content p {
+    font-size: 4.37vw;
+    margin: 3.64vw 0vw;
+  }
+
+  .emailAPImodal-content input {
+    width: 67.96vw;
+    height: 12.14vw;
+    font-size: 4.85vw;
+  }
+
+  .emailAPImodal-btns {
+    margin-top: 4.85vw;
+  }
+
+  .emailAPImodal-checkBtn,
+  .emailAPImodal-cancelBtn {
+    width: 18.2vw;
+    height: 9.71vw;
+    font-size: 4.85vw;
+    border-radius: 2.43vw;
+  }
+}

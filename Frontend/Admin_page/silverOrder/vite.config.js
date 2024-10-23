@@ -1,3 +1,33 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:a4bdd113348e2b9f9481cbfef80dedf683d88f65eb67c2353fe5902bc26885f9
-size 793
+import { defineConfig } from 'vite';
+import react from '@vitejs/plugin-react';
+import { NodeGlobalsPolyfillPlugin } from '@esbuild-plugins/node-globals-polyfill';
+
+// Vite 설정
+export default defineConfig({
+  plugins: [react()],
+  base: '/silverorder/admin/',
+  build: {
+    outDir: 'dist',
+    assetsDir: 'assets',
+  },
+  resolve: {
+    alias: {
+      // Node.js 환경의 util 모듈을 폴리필로 브라우저에서 사용
+      util: 'rollup-plugin-node-polyfills/polyfills/util',
+    },
+  },
+  optimizeDeps: {
+    esbuildOptions: {
+      // globalThis를 global로 정의
+      define: {
+        global: 'globalThis',
+      },
+      plugins: [
+        // Node.js 전역 객체 폴리필
+        NodeGlobalsPolyfillPlugin({
+          buffer: true,
+        }),
+      ],
+    },
+  },
+});

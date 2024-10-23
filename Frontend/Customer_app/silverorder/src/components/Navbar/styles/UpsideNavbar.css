@@ -1,3 +1,87 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:2d4b6b2e77d55c60606f7cf01fcc00dea4e1d7a8e4ed101711c09e9849130655
-size 1228
+.up-navbar-container {
+  display: flex;
+  width: 412px;
+  height: 60px;
+  background-color: #dedede;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.upnav-leftside {
+  display: flex;
+  margin-left: 10px;
+  align-items: center;
+}
+
+.move-before-page {
+  width: 40px;
+  height: 40px;
+  cursor: pointer;
+}
+
+.upnav-rightside {
+  display: flex;
+  margin-right: 15px;
+  align-items: center;
+}
+
+.order-state-check,
+.user-logout {
+  width: 40px;
+  height: 40px;
+  cursor: pointer;
+  margin: 0px 10px;
+}
+
+.order-state-wrapper.alert {
+  position: relative;
+  animation: blink 1s infinite;
+}
+
+.order-state-wrapper.alert::before {
+  content: "";
+  position: absolute;
+  top: -5px;
+  right: -5px;
+  width: 20px;
+  height: 20px;
+  background-color: red;
+  border-radius: 50%;
+  z-index: 1;
+}
+
+@keyframes blink {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0;
+  }
+}
+
+@media (max-width: 412px) {
+  .up-navbar-container {
+    width: 100vw;
+  }
+
+  .upnav-leftside {
+    margin-left: 2.42vw;
+  }
+
+  .move-before-page {
+    width: 9.71vw;
+    height: 9.71vw;
+  }
+
+  .upnav-rightside {
+    margin-right: 3.64vw;
+  }
+
+  .order-state-check,
+  .user-logout {
+    width: 9.71vw;
+    height: 9.71vw;
+    margin: 0vw 2.43vw;
+  }
+}

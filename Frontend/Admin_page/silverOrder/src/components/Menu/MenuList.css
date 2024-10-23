@@ -1,3 +1,103 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:400db68eb76a9146c23f744f9ebd103d63f1827520630cbedc7f9e121deb0a9e
-size 2260
+.menu-list {
+    width: 70%;
+    height: calc(100vh - 220px); 
+    display: flex;
+    flex-direction: column;
+    background-color: white;
+    border-radius: calc(8 / 1440 * 100vw);
+    padding: calc(20 / 1440 * 100vw);
+    box-shadow: calc(0 / 1440 * 100vw) calc(4 / 1440 * 100vw) calc(6 / 1440 * 100vw) rgba(0, 0, 0, 0.1);
+    font-size: calc(16 / 1440 * 100vw);
+    overflow: hidden;
+}
+
+.menu-grid {
+  position : relative;
+  display: flex;
+  flex-wrap: wrap;
+  gap: calc(5 / 1440 * 100vw);
+  justify-content: space-evenly;
+  align-items: center;
+  height: 75%;
+}
+
+.menu-item {
+  width: 30%;
+  height: 80%;
+  position: relative;
+  border: none;
+  border-radius: calc(10 / 1440 * 100vw);
+  overflow: hidden; 
+  box-shadow: 0 calc(4 / 1440 * 100vw) calc(8 / 1440 * 100vw) rgba(0, 0, 0, 0.1);
+  cursor: pointer;
+  transition: transform 0.2s ease-in-out;
+}
+
+.menu-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.menu-item h3 {
+  position: absolute;
+  bottom: 15%; 
+  left: 0;
+  width: 100%;
+  text-align: center;
+  color: white;
+  font-size: calc(20 / 1440 * 100vw);
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+  margin: 0;
+  padding: 0 calc(10 / 1440 * 100vw);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.menu-item p {
+  position: absolute;
+  bottom: 5%; 
+  left: 0;
+  width: 100%;
+  text-align: center;
+  color: white;
+  font-size: calc(16 / 1440 * 100vw);
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+  margin: 0;
+  padding: 0 calc(10 / 1440 * 100vw);
+}
+.menu-item:hover {
+  transform: scale(1.05);
+}
+
+/* Pagination styling */
+.pagination-c {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: calc(10 / 1440 * 100vw) 0;
+  background-color: white;
+  margin-top: auto; /* 페이징 버튼이 항상 맨 아래에 고정되도록 */
+}
+
+.pagination-c button {
+  padding: calc(12 / 1440 * 100vw) calc(50 / 1440 * 100vw);
+  margin: 0 calc(50 / 1440 * 100vw);
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: calc(5 / 1440 * 100vw);
+  cursor: pointer;
+  outline: none;
+  font-size: calc(25 / 1440 * 100vw);
+}
+
+.pagination-c button:disabled {
+  background-color: #ccc;
+  cursor: not-allowed;
+}
+
+.pagination-c span {
+  font-size: calc(25 / 1440 * 100vw);
+}

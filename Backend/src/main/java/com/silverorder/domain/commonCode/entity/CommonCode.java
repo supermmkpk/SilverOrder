@@ -1,3 +1,33 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:f20f2df8457c89520bea78a7caeeb4afeabed17b2ac872ee3876076d4945281c
-size 782
+package com.silverorder.domain.commonCode.entity;
+
+import jakarta.persistence.*;
+import jakarta.validation.constraints.NotNull;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+
+import java.time.LocalDateTime;
+
+@Entity
+@Getter
+@AllArgsConstructor
+@NoArgsConstructor
+@Table(name="T_COMMON_CODE")
+public class CommonCode {
+    @Id
+    @Column(name = "CODE_ID",nullable = false)
+    private Long id;
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "GROUP_ID", nullable = false)
+    @NotNull
+    private CodeGroup codeGroup;
+
+    @Column(name = "CODE_VALUE", length = 50)
+    private String usedColumn;
+
+    @Column(name = "INSERT_DATE", nullable = false)
+    @NotNull
+    private LocalDateTime insertDate;
+}

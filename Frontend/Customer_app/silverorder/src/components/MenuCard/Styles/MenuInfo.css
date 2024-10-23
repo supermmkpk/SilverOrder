@@ -1,3 +1,132 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:6b7c1b8cf26587108b5064b7fcb57e7c871b66e01a65ed3d7606d720e649a7c9
-size 2329
+.menu-item {
+  width: 330px;
+  height: auto;
+  border: solid 1px #cccccc;
+  border-radius: 10px;
+  margin-bottom: 20px;
+  padding: 10px;
+  box-shadow: 5px 5px 15px rgb(123, 123, 123);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-evenly;
+}
+
+.menu-item p {
+  margin: 0;
+}
+
+.menu-item-info {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+}
+
+.menu-item-img {
+  width: 100px;
+  height: 100px;
+  border: solid 1px #cccccc;
+  border-radius: 90%;
+}
+
+#menu-item-name {
+  font-size: 30px;
+  font-weight: bold;
+  word-break: keep-all; /* 단어가 중간에 잘리는 것 방지 */
+}
+
+.menu-item-option-btn {
+  width: 100%;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  margin-top: 10px;
+}
+
+.menu-item-normal,
+.menu-item-plus {
+  width: 150px;
+  height: 130px;
+  border-radius: 25px;
+  border: none;
+  color: #ffffff;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+  text-align: center;
+}
+
+.menu-item-normal {
+  background-color: #1428a0;
+}
+
+.menu-item-plus {
+  background-color: rgb(255, 128, 149);
+}
+
+#menu-item-normal01 {
+  font-size: 35px;
+  font-weight: bold;
+  word-break: keep-all; /* 단어가 중간에 잘리는 것 방지 */
+}
+
+#menu-item-plus01 {
+  font-size: 30px;
+  font-weight: bold;
+  word-break: keep-all; /* 단어가 중간에 잘리는 것 방지 */
+}
+
+#menu-item-normal02,
+#menu-item-plus02 {
+  font-size: 25px;
+  word-break: keep-all; /* 단어가 중간에 잘리는 것 방지 */
+}
+
+@media (max-width: 412px) {
+  .menu-item {
+    width: 80.1vw;
+    height: 67.96vw;
+    border: solid 0.24vw #cccccc;
+    border-radius: 2.43vw;
+    margin-bottom: 4.85vw;
+    padding: 2.43vw;
+    box-shadow: 1.21vw 1.21vw 3.64vw rgb(123, 123, 123);
+  }
+
+  .menu-item-img {
+    width: 24.27vw;
+    height: 24.27vw;
+    border: solid 0.24vw #cccccc;
+  }
+
+  #menu-item-name {
+    font-size: 7.28vw;
+  }
+
+  .menu-item-option-btn {
+    margin-top: 2.43vw;
+  }
+
+  .menu-item-normal,
+  .menu-item-plus {
+    width: 36.41vw;
+    height: 31.55vw;
+    border-radius: 6.07vw;
+  }
+
+  #menu-item-normal01 {
+    font-size: 8.5vw;
+  }
+
+  #menu-item-plus01 {
+    font-size: 7.28vw;
+  }
+
+  #menu-item-normal02,
+  #menu-item-plus02 {
+    font-size: 6.07vw;
+  }
+}

@@ -1,3 +1,28 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:44155f9b6e0e7a7588ba378a1bbe6555299470204c7db174b1a1e2d20d1d1577
-size 541
+package com.silverorder.global.util;
+
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+
+
+/**
+ * <pre>
+ *     목록 검색 조건 DTO 클래스
+ * </pre>
+ *
+ * @author 박봉균
+ * @since JDK17(Eclipse Temurin)
+ */
+@Getter
+@Setter
+@AllArgsConstructor
+@NoArgsConstructor
+public class ListOptionDto {
+    /** 검색어 */
+    private String searchText;
+    /** 정렬 기준 */
+    private String sortKey;
+    /** 정렬 방향 (asc(기본), desc) */
+    private Boolean isDESC;
+}

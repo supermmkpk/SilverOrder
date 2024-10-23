@@ -1,3 +1,92 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:803993e5ef107454f2df776b7b99258bd9df0da8cee3999adea32282f75f82ba
-size 1892
+.sign-in-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    max-width: 412px;
+    margin: 0 auto;
+}
+
+.sign-in-contents {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    height: 60%;
+}
+
+.sign-in-logo {
+    width: 250px;
+    height: 240px;
+    border: 2px solid #cccccc;
+    border-radius: 90%;
+}
+
+.signin-input-box {
+    border-bottom: 2px solid black;
+    margin-bottom: 15px;
+}
+
+#signin-input01,
+#signin-input02 {
+    width: 300px;
+    height: 45px;
+    font-size: 30px;
+    border: none;
+}
+
+.signin-btn-box {
+    display: flex;
+    flex-direction: column; /* 버튼을 위아래로 배치 */
+    justify-content: center; /* 중앙 정렬 */
+    align-items: center; /* 중앙 정렬 */
+    width: 75%;
+}
+
+.signin-btn {
+    width: 300px;
+    height: 50px;
+    font-size: 35px;
+    color: #ffffff;
+    cursor: pointer;
+    border-radius: 7px;
+    background: #1428a0;
+    border: none;
+    box-shadow: 2px 2px 8px rgb(89, 89, 89);
+    margin-bottom: 10px; /* 버튼 간의 간격 */
+}
+
+.signin-cancel-btn {
+    width: 300px;
+    height: 50px;
+    font-size: 35px;
+    color: black;
+    cursor: pointer;
+    border-radius: 7px;
+    background: #cccccc;
+    border: none;
+    box-shadow: 2px 2px 8px rgb(89, 89, 89);
+}
+
+@media (max-width: 412px) {
+    .sign-in-logo {
+        width: 60.7vw; /* 250 / 412 * 100 */
+        height: 58.3vw; /* 240 / 412 * 100 */
+    }
+
+    #signin-input01,
+    #signin-input02 {
+        width: 72.8vw; /* 300 / 412 * 100 */
+        height: 10.9vw; /* 45 / 412 * 100 */
+        font-size: 7.3vw; /* 30 / 412 * 100 */
+    }
+
+    .signin-btn,
+    .signin-cancel-btn {
+        width: 72.8vw; /* 300 / 412 * 100 */
+        height: 12.1vw; /* 50 / 412 * 100 */
+        font-size: 8.5vw; /* 35 / 412 * 100 */
+    }
+}

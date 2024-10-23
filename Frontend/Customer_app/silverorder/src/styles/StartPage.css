@@ -1,3 +1,50 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:a1a4f7dc5b76f954d3f5b952367dd9eba4341d73362c090957d75dbc083b3be8
-size 1070
+.start-container {
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #dedede;
+}
+
+.start-contents {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+  height: 80%; /* 고정 비율 사용 */
+  width: 100%;
+  max-width: 412px; /* 최대 너비 설정 */
+}
+
+.start-page-logo {
+  width: calc(360 / 412 * 100vw);
+  max-width: 360px;
+  height: auto;
+}
+
+.start-page-signin-btn,
+.start-page-signup-btn {
+  width: calc(350 / 412 * 100vw);
+  max-width: 350px;
+  height: 15%;
+  font-size: 50px;
+  font-weight: bold;
+  color: #ffffff;
+  cursor: pointer;
+  border-radius: 10px;
+  background: #1428a0;
+  border: none;
+  box-shadow: 5px 5px 15px rgb(89, 89, 89);
+  margin: 10px 0; /* 버튼 사이 간격 추가 */
+}
+
+@media (max-width: 412px) {
+  .start-page-signin-btn,
+  .start-page-signup-btn {
+    font-size: 12.14vw;
+    border-radius: 2.43vw;
+    box-shadow: 1.21vw 1.21vw 3.64vw rgb(89, 89, 89);
+    margin: 2.43vw 0; /* 버튼 사이 간격 추가 */
+  }
+}

@@ -1,3 +1,46 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:7ee9414263c48dfe82d8d1640eed41cd6f5a4bf8331f4e3c5d240bdc434e0b4d
-size 1227
+package com.silverorder.domain.order.dto;
+
+import com.silverorder.domain.order.entity.Order;
+import com.silverorder.domain.payment.entity.Payment;
+import com.silverorder.domain.store.entity.Store;
+import io.swagger.v3.oas.annotations.media.Schema;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+import java.time.LocalDate;
+import java.util.List;
+
+
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+public class OrderDto {
+
+    private Long storeId;
+    private Long totalPrice;
+    private Long paymentId;
+    private LocalDate orderDate;
+    private String require;
+    private OrderStatus orderStatus;
+    private List<OrderMenuDto> menuList;
+
+    @Schema(hidden = true)
+    private Long tradeNum;
+
+    public Order toEntity(Store store, Payment payment) {
+       if(this.orderStatus == null) {
+           this.orderStatus = OrderStatus.ORDER_IN;
+       }
+        return Order.builder()
+                .orderStatus(this.orderStatus)
+                .require(this.require)
+                .payPrice(this.totalPrice)
+                .tradeNum(this.tradeNum)
+                .store(store)
+                .payment(payment)
+                .build();
+    }
+
+}
