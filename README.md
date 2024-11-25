@@ -266,6 +266,7 @@ https://www.figma.com/design/owlRaOIHd9WRoKhJDBLIQo/2%ED%95%99%EA%B8%B0-%ED%8A%B
           <li><strong>SSAFY 11th</strong></li>
           <li>Backend</li>
           <li>AI</li>
+          <li>DB</li>
         </ul>
       </td>
     </tr>
